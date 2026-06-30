@@ -180,6 +180,9 @@ function Hero() {
             <a href="#projects" className="inline-flex items-center gap-2 rounded-md border border-border bg-background/50 backdrop-blur px-5 py-3 text-sm font-semibold text-foreground hover:bg-accent transition">
               View Projects
             </a>
+            <a href={RESUME_URL} download="Nitinkumar_Hiremath_Resume.docx" className="group inline-flex items-center gap-2 rounded-md border border-primary/40 bg-primary/10 px-5 py-3 text-sm font-semibold text-primary hover:bg-primary/20 transition">
+              <Download className="h-4 w-4" /> Download Resume
+            </a>
           </div>
           <div className="mt-10 flex items-center gap-4">
             {[
