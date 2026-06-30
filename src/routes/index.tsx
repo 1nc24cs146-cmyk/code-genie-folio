@@ -3,8 +3,11 @@ import { useEffect, useState, type FormEvent } from "react";
 import {
   Github, Linkedin, Mail, Phone, ExternalLink, Code2, Database, Wrench, Brain,
   Moon, Sun, Menu, X, ArrowRight, GraduationCap, Award, Lightbulb, Users,
-  Zap, Rocket, Sparkles, BookOpen, Terminal,
+  Zap, Rocket, Sparkles, BookOpen, Terminal, Download,
 } from "lucide-react";
+import resumeAsset from "@/assets/resume.docx.asset.json";
+
+const RESUME_URL = resumeAsset.url;
 
 export const Route = createFileRoute("/")({
   head: () => ({
