@@ -57,7 +57,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Nitinkumar Hiremath — Full Stack Developer & GenAI Enthusiast" },
+      { title: "Nitinkumar Hiremath — Full Stack & GenAI Developer" },
       { name: "description", content: "Portfolio of Nitinkumar Hiremath, CSE student and full stack developer passionate about Generative AI, AI agents, and automation." },
       { name: "author", content: "Nitinkumar Hiremath" },
       { property: "og:title", content: "Nitinkumar Hiremath — Full Stack Developer" },
