@@ -12,10 +12,36 @@ const RESUME_URL = resumeAsset.url;
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Nitinkumar Hiremath — Full Stack Developer & GenAI Enthusiast" },
+      { title: "Nitinkumar Hiremath — Full Stack & GenAI Developer" },
       { name: "description", content: "Portfolio of Nitinkumar Hiremath: full stack developer, CSE student, building with Generative AI, AI agents, and automation." },
+      { property: "og:title", content: "Nitinkumar Hiremath — Full Stack & GenAI Developer" },
+      { property: "og:description", content: "Portfolio of Nitinkumar Hiremath: full stack developer, CSE student, building with Generative AI, AI agents, and automation." },
+      { property: "og:url", content: "https://code-genie-folio.lovable.app/" },
+      { property: "og:type", content: "website" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://code-genie-folio.lovable.app/" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Nitinkumar Hiremath",
+          jobTitle: "Full Stack Developer",
+          description: "Computer Science Engineering student and full stack developer passionate about Generative AI, AI agents, and automation.",
+          url: "https://code-genie-folio.lovable.app/",
+          sameAs: [
+            "https://github.com/1nc24cs146-cmyk",
+            "https://www.linkedin.com/in/nitin-kumar-701157381",
+            "https://leetcode.com/u/Nitin_810",
+          ],
+        }),
+      },
     ],
   }),
+
   component: Portfolio,
 });
 
