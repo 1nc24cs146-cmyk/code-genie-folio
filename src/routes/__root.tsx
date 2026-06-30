@@ -64,6 +64,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:description", content: "Building innovative and scalable applications with a passion for Generative AI and Intelligent Systems." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { name: "google-site-verification", content: "ZfsEzELlqQe2J7weNH9qrtceNdFf6edCt2jtzwfEgW8" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
