@@ -271,7 +271,7 @@ function Skills() {
               </div>
               <div className="flex flex-wrap gap-2">
                 {items.map((i) => (
-                  <span key={i} className="rounded-md border border-border bg-background px-2.5 py-1 text-xs font-mono text-foreground/80">{i}</span>
+                  <span key={i} className="rounded-md border border-border bg-background px-2.5 py-1 text-xs font-mono text-foreground">{i}</span>
                 ))}
               </div>
             </div>
