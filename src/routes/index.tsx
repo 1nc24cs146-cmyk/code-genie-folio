@@ -465,20 +465,6 @@ function Contact() {
             <p className="text-lg text-muted-foreground max-w-md">
               Have an idea, an opportunity, or just want to say hi? My inbox is open.
             </p>
-            <div className="mt-8 space-y-4">
-              <a href={`mailto:${EMAIL}`} className="flex items-center gap-3 group">
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition">
-                  <Mail className="h-5 w-5" />
-                </span>
-                <span className="font-medium break-all">{EMAIL}</span>
-              </a>
-              <a href={`tel:${PHONE}`} className="flex items-center gap-3 group">
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition">
-                  <Phone className="h-5 w-5" />
-                </span>
-                <span className="font-medium">{PHONE}</span>
-              </a>
-            </div>
             <div className="mt-8 flex items-center gap-3">
               {[
                 { href: LINKEDIN_URL, icon: Linkedin, label: "LinkedIn" },
