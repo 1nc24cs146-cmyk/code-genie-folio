@@ -6,6 +6,7 @@ import {
   Zap, Rocket, Sparkles, BookOpen, Terminal, Download,
 } from "lucide-react";
 import resumeAsset from "@/assets/resume.docx.asset.json";
+import portraitAsset from "@/assets/nitin-portrait.jpeg.asset.json";
 
 const RESUME_URL = resumeAsset.url;
 
@@ -181,53 +182,67 @@ function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-20 bg-hero-glow">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 w-full">
-        <div className="max-w-3xl animate-fade-up">
-          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-background/50 backdrop-blur px-3 py-1 text-xs font-medium text-muted-foreground mb-6">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
-            </span>
-            Available for opportunities
-          </div>
-          <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-bold leading-[1.05] tracking-tight">
-            Hi, I'm <span className="text-gradient">Nitinkumar</span><br />
-            <span className="text-foreground">Hiremath.</span>
-          </h1>
-          <p className="mt-5 text-lg sm:text-xl text-muted-foreground font-medium">
-            Full Stack Developer <span className="text-primary">/</span> CSE Student <span className="text-primary">/</span> GenAI Enthusiast
-          </p>
-          <p className="mt-4 max-w-2xl text-base sm:text-lg text-muted-foreground">
-            Building innovative and scalable applications with a passion for Generative AI and Intelligent Systems.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#contact" className="group inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-glow hover:opacity-90 transition">
-              Contact Me <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </a>
-            <a href="#projects" className="inline-flex items-center gap-2 rounded-md border border-border bg-background/50 backdrop-blur px-5 py-3 text-sm font-semibold text-foreground hover:bg-accent transition">
-              View Projects
-            </a>
-            <a href={RESUME_URL} download="Nitinkumar_Hiremath_Resume.docx" className="group inline-flex items-center gap-2 rounded-md border border-primary/40 bg-primary/10 px-5 py-3 text-sm font-semibold text-primary hover:bg-primary/20 transition">
-              <Download className="h-4 w-4" /> Download Resume
-            </a>
-          </div>
-          <div className="mt-10 flex items-center gap-4">
-            {[
-              { href: LINKEDIN_URL, icon: Linkedin, label: "LinkedIn" },
-              { href: GITHUB_URL, icon: Github, label: "GitHub" },
-              { href: LEETCODE_URL, icon: LeetCodeIcon, label: "LeetCode" },
-              { href: `mailto:${EMAIL}`, icon: Mail, label: "Email" },
-            ].map(({ href, icon: Icon, label }) => (
-              <a
-                key={label}
-                href={href}
-                target={href.startsWith("mailto") ? undefined : "_blank"}
-                rel="noopener noreferrer"
-                aria-label={label}
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                <Icon className="h-5 w-5" />
+        <div className="grid md:grid-cols-[1fr_auto] gap-10 md:gap-14 items-center">
+          <div className="max-w-3xl animate-fade-up order-2 md:order-1">
+            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-background/50 backdrop-blur px-3 py-1 text-xs font-medium text-muted-foreground mb-6">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+              </span>
+              Available for opportunities
+            </div>
+            <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-bold leading-[1.05] tracking-tight">
+              Hi, I'm <span className="text-gradient">Nitinkumar</span><br />
+              <span className="text-foreground">Hiremath.</span>
+            </h1>
+            <p className="mt-5 text-lg sm:text-xl text-muted-foreground font-medium">
+              Full Stack Developer <span className="text-primary">/</span> CSE Student <span className="text-primary">/</span> GenAI Enthusiast
+            </p>
+            <p className="mt-4 max-w-2xl text-base sm:text-lg text-muted-foreground">
+              Building innovative and scalable applications with a passion for Generative AI and Intelligent Systems.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a href="#contact" className="group inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-glow hover:opacity-90 transition">
+                Contact Me <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
-            ))}
+              <a href="#projects" className="inline-flex items-center gap-2 rounded-md border border-border bg-background/50 backdrop-blur px-5 py-3 text-sm font-semibold text-foreground hover:bg-accent transition">
+                View Projects
+              </a>
+              <a href={RESUME_URL} download="Nitinkumar_Hiremath_Resume.docx" className="group inline-flex items-center gap-2 rounded-md border border-primary/40 bg-primary/10 px-5 py-3 text-sm font-semibold text-primary hover:bg-primary/20 transition">
+                <Download className="h-4 w-4" /> Download Resume
+              </a>
+            </div>
+            <div className="mt-10 flex items-center gap-4">
+              {[
+                { href: LINKEDIN_URL, icon: Linkedin, label: "LinkedIn" },
+                { href: GITHUB_URL, icon: Github, label: "GitHub" },
+                { href: LEETCODE_URL, icon: LeetCodeIcon, label: "LeetCode" },
+                { href: `mailto:${EMAIL}`, icon: Mail, label: "Email" },
+              ].map(({ href, icon: Icon, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target={href.startsWith("mailto") ? undefined : "_blank"}
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  <Icon className="h-5 w-5" />
+                </a>
+              ))}
+            </div>
+          </div>
+          <div className="order-1 md:order-2 flex justify-center md:justify-end animate-fade-up">
+            <div className="relative">
+              <div className="absolute -inset-4 rounded-full bg-gradient-to-br from-primary/30 to-primary/5 blur-2xl" aria-hidden="true" />
+              <img
+                src={portraitAsset.url}
+                alt="Portrait of Nitinkumar Hiremath"
+                width={320}
+                height={320}
+                className="relative h-56 w-56 sm:h-64 sm:w-64 md:h-80 md:w-80 rounded-full object-cover border-2 border-primary/30 shadow-glow"
+              />
+            </div>
           </div>
         </div>
       </div>
