@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nitinkumar Hiremath — Full Stack & GenAI Developer</title>
+<meta name="description" content="Portfolio of Nitinkumar Hiremath: full stack developer, CSE student, building with Generative AI, AI agents, and automation." />
+<meta name="author" content="Nitinkumar Hiremath" />
+<meta property="og:title" content="Nitinkumar Hiremath — Full Stack & GenAI Developer" />
+<meta property="og:description" content="Portfolio of Nitinkumar Hiremath: full stack developer, CSE student, building with Generative AI, AI agents, and automation." />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Nitinkumar Hiremath","jobTitle":"Full Stack Developer","description":"Computer Science Engineering student and full stack developer passionate about Generative AI, AI agents, and automation.","sameAs":["https://github.com/1nc24cs146-cmyk","https://www.linkedin.com/in/nitin-kumar-701157381","https://leetcode.com/u/Nitin_810"]}
+</script>
+<style>
+  :root{
+    --bg:#0b0f17; --surface:#0f1521; --card:#131a28; --border:#222c3f;
+    --text:#e6ebf5; --muted:#93a0b8; --primary:#6ea8fe; --primary-2:#8b5cf6;
+    --shadow-glow: 0 10px 40px -10px rgba(110,168,254,.35);
+    --shadow-card: 0 1px 2px rgba(0,0,0,.3), 0 4px 20px rgba(0,0,0,.25);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .container{max-width:72rem;margin:0 auto;padding:0 1.25rem}
+  .display{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em}
+  .mono{font-family:'JetBrains Mono',monospace}
+  .muted{color:var(--muted)}
+  .gradient-text{background:linear-gradient(90deg,var(--primary),var(--primary-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  /* Nav */
+  header.nav{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(10px);background:rgba(11,15,23,.75);border-bottom:1px solid var(--border)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:4rem}
+  .brand{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.125rem}
+  .brand .dot{color:var(--muted)}
+  nav.links{display:none;gap:.25rem}
+  nav.links a{padding:.5rem .75rem;font-size:.875rem;font-weight:500;color:var(--muted);border-radius:.375rem;transition:color .2s}
+  nav.links a:hover{color:var(--text)}
+  @media(min-width:768px){nav.links{display:flex}}
+
+  /* Hero */
+  section{padding:6rem 0}
+  #home{min-height:100vh;display:flex;align-items:center;padding-top:6rem;background:radial-gradient(ellipse at top,rgba(110,168,254,.15),transparent 60%)}
+  .hero-grid{display:grid;gap:2.5rem;align-items:center;grid-template-columns:1fr}
+  @media(min-width:768px){.hero-grid{grid-template-columns:1fr auto;gap:3.5rem}}
+  .badge{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--border);background:rgba(15,21,33,.6);padding:.25rem .75rem;border-radius:9999px;font-size:.75rem;font-weight:500;color:var(--muted);margin-bottom:1.25rem}
+  .dot-pulse{position:relative;width:.5rem;height:.5rem;border-radius:9999px;background:var(--primary)}
+  .dot-pulse::before{content:"";position:absolute;inset:0;border-radius:9999px;background:var(--primary);animation:ping 1.5s cubic-bezier(0,0,.2,1) infinite}
+  @keyframes ping{75%,100%{transform:scale(2.5);opacity:0}}
+  h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.5rem,7vw,4.5rem);font-weight:700;line-height:1.05;letter-spacing:-.02em;margin:0}
+  .tag{margin-top:1.25rem;font-size:1.125rem;color:var(--muted);font-weight:500}
+  .tag .sep{color:var(--primary)}
+  .lede{margin-top:1rem;font-size:1.05rem;color:var(--muted);max-width:38rem}
+  .cta-row{margin-top:2rem;display:flex;flex-wrap:wrap;gap:.75rem}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.25rem;border-radius:.5rem;font-size:.875rem;font-weight:600;transition:.2s;border:1px solid transparent;cursor:pointer}
+  .btn-primary{background:var(--primary);color:#0b0f17;box-shadow:var(--shadow-glow)}
+  .btn-primary:hover{opacity:.9}
+  .btn-outline{border-color:var(--border);background:rgba(15,21,33,.5);color:var(--text)}
+  .btn-outline:hover{background:rgba(255,255,255,.05)}
+  .socials{margin-top:2.5rem;display:flex;gap:1.25rem}
+  .socials a{color:var(--muted);transition:color .2s}
+  .socials a:hover{color:var(--primary)}
+  .portrait-wrap{position:relative;display:flex;justify-content:center}
+  .portrait-wrap::before{content:"";position:absolute;inset:-1rem;border-radius:9999px;background:radial-gradient(circle,rgba(110,168,254,.3),rgba(139,92,246,.05));filter:blur(30px)}
+  .portrait{position:relative;width:14rem;height:14rem;border-radius:9999px;object-fit:cover;border:2px solid rgba(110,168,254,.4);box-shadow:var(--shadow-glow)}
+  @media(min-width:640px){.portrait{width:16rem;height:16rem}}
+  @media(min-width:768px){.portrait{width:20rem;height:20rem}}
+
+  /* Section heading */
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.15em;color:var(--primary);margin:0 0 .5rem}
+  h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.75rem,4vw,3rem);font-weight:700;letter-spacing:-.02em;margin:0 0 3rem}
+
+  /* Cards / grids */
+  .card{border:1px solid var(--border);background:var(--card);border-radius:.75rem;padding:1.5rem;box-shadow:var(--shadow-card);transition:.2s}
+  .card:hover{transform:translateY(-2px);box-shadow:var(--shadow-glow);border-color:rgba(110,168,254,.5)}
+  .grid{display:grid;gap:1.25rem}
+  .grid-2{grid-template-columns:1fr}
+  .grid-3{grid-template-columns:1fr}
+  @media(min-width:640px){.grid-3{grid-template-columns:1fr 1fr}}
+  @media(min-width:1024px){.grid-3{grid-template-columns:1fr 1fr 1fr}}
+  @media(min-width:768px){.grid-2{grid-template-columns:1fr 1fr}}
+  .about-grid{display:grid;gap:2rem;grid-template-columns:1fr}
+  @media(min-width:768px){.about-grid{grid-template-columns:2fr 1fr}}
+
+  .alt{background:rgba(255,255,255,.02)}
+  .stat{border:1px solid var(--border);background:var(--card);border-radius:.75rem;padding:1.25rem;box-shadow:var(--shadow-card);margin-bottom:1rem}
+  .stat-num{font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700}
+  .icon-box{display:inline-flex;width:2.5rem;height:2.5rem;align-items:center;justify-content:center;border-radius:.5rem;background:rgba(110,168,254,.15);color:var(--primary);margin-bottom:.5rem}
+  .chip-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+  .chip{border:1px solid var(--border);background:var(--bg);padding:.25rem .625rem;border-radius:.375rem;font-family:'JetBrains Mono',monospace;font-size:.75rem}
+  .chip-primary{background:rgba(110,168,254,.15);color:var(--primary);border:none;padding:.25rem .5rem;border-radius:.375rem;font-family:'JetBrains Mono',monospace;font-size:.75rem}
+
+  /* Projects */
+  .project{display:flex;flex-direction:column;height:100%}
+  .project h3{margin:0;font-family:'Space Grotesk',sans-serif;font-size:1.25rem;font-weight:600;line-height:1.3}
+  .project p{color:var(--muted);font-size:.9rem;margin:1rem 0;flex:1}
+  .project-header{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start}
+  .icon-btn{display:inline-flex;width:2.25rem;height:2.25rem;align-items:center;justify-content:center;border:1px solid var(--border);border-radius:.375rem;color:var(--muted);transition:.2s;flex-shrink:0}
+  .icon-btn:hover{color:var(--primary);border-color:var(--primary)}
+  .link-out{margin-top:1.25rem;display:inline-flex;align-items:center;gap:.375rem;color:var(--primary);font-weight:600;font-size:.875rem}
+
+  /* Timeline */
+  ol.timeline{list-style:none;padding:0 0 0 .75rem;margin:0;border-left:2px solid var(--border)}
+  ol.timeline li{padding-left:2rem;position:relative;margin-bottom:2.5rem}
+  ol.timeline li::before{content:"";position:absolute;left:-11px;top:.4rem;width:1.25rem;height:1.25rem;border-radius:9999px;background:var(--primary);box-shadow:var(--shadow-glow)}
+  .period{font-family:'JetBrains Mono',monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.15em;color:var(--primary)}
+  ol.timeline h3{margin:.25rem 0;font-family:'Space Grotesk',sans-serif;font-size:1.125rem;font-weight:600}
+
+  /* Contact */
+  .contact-grid{display:grid;gap:2.5rem;grid-template-columns:1fr}
+  @media(min-width:768px){.contact-grid{grid-template-columns:1fr 1fr}}
+  .field{margin-bottom:1rem}
+  .field label{display:block;font-size:.875rem;font-weight:500;margin-bottom:.375rem}
+  .field input,.field textarea{width:100%;padding:.625rem .75rem;border:1px solid var(--border);border-radius:.375rem;background:var(--bg);color:var(--text);font:inherit;font-size:.875rem;outline:none;transition:.2s}
+  .field input:focus,.field textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(110,168,254,.2)}
+  .field textarea{resize:none;min-height:6rem}
+  .icon-links{display:flex;gap:.75rem;margin-top:2rem}
+  .icon-links a{display:inline-flex;width:2.5rem;height:2.5rem;align-items:center;justify-content:center;border:1px solid var(--border);border-radius:.5rem;color:var(--muted);transition:.2s}
+  .icon-links a:hover{color:var(--primary);border-color:var(--primary)}
+
+  footer{border-top:1px solid var(--border);padding:2.5rem 0;margin-top:2rem}
+  .foot{display:flex;flex-direction:column;gap:1rem;align-items:center;justify-content:space-between}
+  @media(min-width:640px){.foot{flex-direction:row}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="#home" class="brand"><span class="gradient-text">N</span>itin<span class="dot">.dev</span></a>
+    <nav class="links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section id="home">
+  <div class="container hero-grid">
+    <div>
+      <div class="badge"><span class="dot-pulse"></span> Available for opportunities</div>
+      <h1 class="display">Hi, I'm <span class="gradient-text">Nitinkumar</span><br />Hiremath.</h1>
+      <p class="tag">Full Stack Developer <span class="sep">/</span> CSE Student <span class="sep">/</span> GenAI Enthusiast</p>
+      <p class="lede">Building innovative and scalable applications with a passion for Generative AI and Intelligent Systems.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#contact">Contact Me →</a>
+        <a class="btn btn-outline" href="#projects">View Projects</a>
+      </div>
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/nitin-kumar-701157381" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="https://github.com/1nc24cs146-cmyk" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        </a>
+        <a href="https://leetcode.com/u/Nitin_810" target="_blank" rel="noopener" aria-label="LeetCode">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"/></svg>
+        </a>
+        <a href="mailto:nitinkumarnitin3767@gmail.com" aria-label="Email">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="portrait-wrap">
+      <img class="portrait" src="assets/nitin-portrait.jpeg" alt="Portrait of Nitinkumar Hiremath" width="320" height="320" />
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <p class="eyebrow">About</p><h2>A bit about me.</h2>
+    <div class="about-grid">
+      <p style="font-size:1.05rem;color:var(--muted);margin:0">
+        I'm a Computer Science Engineering student skilled in <strong style="color:var(--text)">Java, Python, SQL, HTML, CSS, JavaScript, and Node.js</strong>, with a strong foundation in software development, database management, and problem-solving. I love turning ideas into products — especially at the intersection of <strong style="color:var(--text)">Generative AI, agents, and automation</strong>.
+      </p>
+      <div>
+        <div class="stat"><div class="icon-box">🚀</div><div class="stat-num">500+</div><div class="muted" style="font-size:.875rem">Problems solved</div></div>
+        <div class="stat"><div class="icon-box">✨</div><div class="stat-num">7+</div><div class="muted" style="font-size:.875rem">Certifications</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="alt">
+  <div class="container">
+    <p class="eyebrow">Skills</p><h2>Tools I work with.</h2>
+    <div class="grid grid-3">
+      <div class="card"><h3 class="display" style="margin:0 0 1rem;font-size:1.125rem">Languages</h3><div class="chip-row" style="margin:0"><span class="chip">C</span><span class="chip">Java</span><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">NoSQL</span></div></div>
+      <div class="card"><h3 class="display" style="margin:0 0 1rem;font-size:1.125rem">Web Technologies</h3><div class="chip-row" style="margin:0"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">Node.js</span></div></div>
+      <div class="card"><h3 class="display" style="margin:0 0 1rem;font-size:1.125rem">Databases</h3><div class="chip-row" style="margin:0"><span class="chip">MySQL</span><span class="chip">MongoDB</span></div></div>
+      <div class="card"><h3 class="display" style="margin:0 0 1rem;font-size:1.125rem">Developer Tools</h3><div class="chip-row" style="margin:0"><span class="chip">GitHub</span><span class="chip">VS Code</span></div></div>
+      <div class="card"><h3 class="display" style="margin:0 0 1rem;font-size:1.125rem">Concepts</h3><div class="chip-row" style="margin:0"><span class="chip">DBMS</span><span class="chip">Data Structures &amp; Algorithms</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <p class="eyebrow">Work</p><h2>Selected projects.</h2>
+    <div class="grid grid-2">
+      <article class="card project">
+        <div class="project-header">
+          <h3>Blockchain-Based Digital Credential Verification System</h3>
+          <a class="icon-btn" href="https://github.com/1nc24cs146-cmyk" target="_blank" rel="noopener" aria-label="GitHub">↗</a>
+        </div>
+        <p>A blockchain-based platform for secure verification of academic and personal credentials, using face and thumb verification for authentication, reducing fake certificates and document forgery through decentralized validation.</p>
+        <div class="chip-row" style="margin:0"><span class="chip-primary">Blockchain</span><span class="chip-primary">Database Management</span><span class="chip-primary">Face Verification</span><span class="chip-primary">Thumb Verification</span></div>
+        <a class="link-out" href="https://github.com/1nc24cs146-cmyk" target="_blank" rel="noopener">View on GitHub ↗</a>
+      </article>
+      <article class="card project">
+        <div class="project-header">
+          <h3>CertiEngine – Online Certification Platform</h3>
+          <a class="icon-btn" href="https://github.com/1nc24cs146-cmyk" target="_blank" rel="noopener" aria-label="GitHub">↗</a>
+        </div>
+        <p>A web-based certification platform for Java, Python, and C programming courses with an interactive enrollment/certification UI and a Node.js-powered backend for managing users, courses, and records.</p>
+        <div class="chip-row" style="margin:0"><span class="chip-primary">React.js</span><span class="chip-primary">Node.js</span><span class="chip-primary">HTML</span><span class="chip-primary">CSS</span></div>
+        <a class="link-out" href="https://github.com/1nc24cs146-cmyk" target="_blank" rel="noopener">View on GitHub ↗</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements" class="alt">
+  <div class="container">
+    <p class="eyebrow">Achievements</p><h2>Certifications &amp; milestones.</h2>
+    <div class="grid grid-3">
+      <div class="card">🏅 Oracle Java Certificate</div>
+      <div class="card">🏅 Red Hat Java Course Completion Certificate</div>
+      <div class="card">🏅 Oracle Applied Database Systems 23AI</div>
+      <div class="card">🏅 Solved 500+ rated problems on CodeChef</div>
+      <div class="card">🏅 Google Cloud – Introduction to Generative AI Studio</div>
+      <div class="card">🏅 Cisco Python Essentials 1 Certification</div>
+      <div class="card">🏅 Red Hat Python Course Completion Certificate</div>
+      <a class="card" href="https://leetcode.com/u/Nitin_810" target="_blank" rel="noopener">🏅 Active problem solver on LeetCode</a>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <p class="eyebrow">Education</p><h2>My academic journey.</h2>
+    <ol class="timeline">
+      <li>
+        <p class="period">2024 – 2028</p>
+        <h3>Bachelor of Engineering, Computer Science</h3>
+        <p class="muted" style="margin:.25rem 0;font-size:.875rem">Nagarjuna College of Engineering and Technology</p>
+        <p style="margin:.25rem 0;font-size:.875rem;font-weight:500">CGPA: 6.2</p>
+      </li>
+      <li>
+        <p class="period">2022 – 2024</p>
+        <h3>Pre-University Course</h3>
+        <p class="muted" style="margin:.25rem 0;font-size:.875rem">Benakatti PU College, Vijayapura</p>
+        <p style="margin:.25rem 0;font-size:.875rem;font-weight:500">94%</p>
+      </li>
+      <li>
+        <p class="period">2022</p>
+        <h3>Secondary School (10th)</h3>
+        <p class="muted" style="margin:.25rem 0;font-size:.875rem">Kendriya Vidyalaya, Chikodi</p>
+        <p style="margin:.25rem 0;font-size:.875rem;font-weight:500">59%</p>
+      </li>
+    </ol>
+
+    <div style="margin-top:4rem">
+      <p class="eyebrow">Strengths</p><h2>What I bring to the table.</h2>
+      <div class="grid grid-3">
+        <div class="card">💡 Problem Solving</div>
+        <div class="card">🤝 Team Collaboration</div>
+        <div class="card">⚡ Quick Learning Ability</div>
+        <div class="card">🧠 Analytical Thinking</div>
+        <div class="card">📚 Software Development Fundamentals</div>
+        <div class="card">✨ Adaptability &amp; Continuous Learning</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="alt">
+  <div class="container">
+    <p class="eyebrow">Contact</p><h2>Let's build something.</h2>
+    <div class="contact-grid">
+      <div>
+        <p style="font-size:1.05rem;color:var(--muted);max-width:28rem">Have an idea, an opportunity, or just want to say hi? My inbox is open.</p>
+        <p style="margin-top:1.5rem">
+          <a href="mailto:nitinkumarnitin3767@gmail.com" style="color:var(--primary);font-weight:600">nitinkumarnitin3767@gmail.com</a><br>
+          <span class="muted">+91 8496843611</span>
+        </p>
+        <div class="icon-links">
+          <a href="https://www.linkedin.com/in/nitin-kumar-701157381" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+          <a href="https://github.com/1nc24cs146-cmyk" target="_blank" rel="noopener" aria-label="GitHub">gh</a>
+          <a href="https://leetcode.com/u/Nitin_810" target="_blank" rel="noopener" aria-label="LeetCode">lc</a>
+        </div>
+      </div>
+      <form class="card" onsubmit="return sendMail(event)">
+        <div class="field"><label for="name">Name</label><input id="name" name="name" required /></div>
+        <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required /></div>
+        <div class="field"><label for="message">Message</label><textarea id="message" name="message" rows="4" required></textarea></div>
+        <button class="btn btn-primary" type="submit" style="width:100%;justify-content:center">Send Message →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container foot">
+    <p class="muted" style="font-size:.875rem;margin:0">© <span id="yr"></span> Nitinkumar Hiremath. Built with care.</p>
+    <div class="icon-links" style="margin:0">
+      <a href="https://www.linkedin.com/in/nitin-kumar-701157381" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+      <a href="https://github.com/1nc24cs146-cmyk" target="_blank" rel="noopener" aria-label="GitHub">gh</a>
+      <a href="mailto:nitinkumarnitin3767@gmail.com" aria-label="Email">@</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  function sendMail(e){
+    e.preventDefault();
+    var f=e.target;
+    var name=f.name.value, email=f.email.value, msg=f.message.value;
+    var body=encodeURIComponent('Hi Nitinkumar,\n\n'+msg+'\n\n— '+name+' ('+email+')');
+    window.location.href='mailto:nitinkumarnitin3767@gmail.com?subject='+encodeURIComponent('Portfolio contact from '+name)+'&body='+body;
+    return false;
+  }
+</script>
+</body>
+</html>
