@@ -94,9 +94,10 @@
   .portrait-wrap{position:relative;display:flex;justify-content:center;animation:float 3s ease-in-out infinite 0.2s}
   .portrait-wrap::before{content:"";position:absolute;inset:-1rem;border-radius:9999px;background:radial-gradient(circle,rgba(110,168,254,.3),rgba(139,92,246,.05));filter:blur(30px);animation:glow-pulse 3s ease-in-out infinite}
   .portrait-wrap::after{content:"";position:absolute;inset:-0.25rem;border-radius:9999px;background:rgba(110,168,254,.08);backdrop-filter:blur(15px);border:1px solid rgba(110,168,254,.25)}
-  .portrait{position:relative;width:14rem;height:14rem;border-radius:9999px;object-fit:cover;border:2px solid rgba(110,168,254,.4);box-shadow:var(--shadow-glow);transition:all 0.3s}
+  .portrait{position:relative;width:14rem;height:14rem;border-radius:9999px;background-image:url("assets/nitin-portrait.jpeg");background-size:cover;background-position:center;background-repeat:no-repeat;border:2px solid rgba(110,168,254,.4);box-shadow:var(--shadow-glow);transition:all 0.3s}
   .portrait:hover{border-color:rgba(110,168,254,.7);box-shadow:0 15px 50px -10px rgba(110,168,254,.4)}
-  
+  @media(min-width:640px){.portrait{width:16rem;height:16rem}}
+  @media(min-width:768px){.portrait{width:20rem;height:20rem}}
 
   /* Section heading */
   .eyebrow{font-family:'JetBrains Mono',monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.15em;color:var(--primary);margin:0 0 .5rem}
@@ -113,7 +114,6 @@
   @media(min-width:768px){.grid-2{grid-template-columns:1fr 1fr}}
   .about-grid{display:grid;gap:2rem;grid-template-columns:1fr}
   @media(min-width:768px){.about-grid{grid-template-columns:2fr 1fr}}
-  
 
   .alt{background:rgba(110,168,254,.02);position:relative}
   .alt::before{content:"";position:absolute;top:0;right:0;width:20rem;height:20rem;background:rgba(110,168,254,.05);border-radius:50%;filter:blur(80px);pointer-events:none}
@@ -203,9 +203,9 @@
         <a href="mailto:nitinkumarnitin3767@gmail.com" aria-label="Email"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
       </div>
     </div>
-  </div>
-  <div class="portrait-wrap">
-    <img class="portrait" src="assets/intro-protrait.jpeg" alt="Portrait of Nitinkumar Hiremath" />
+    <div class="portrait-wrap">
+      <div class="portrait" role="img" aria-label="Portrait of Nitinkumar Hiremath"></div>
+    </div>
   </div>
 </section>
 
