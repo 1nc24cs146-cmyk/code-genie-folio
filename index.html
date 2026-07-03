@@ -94,7 +94,7 @@
   .portrait-wrap{position:relative;display:flex;justify-content:center;animation:float 3s ease-in-out infinite 0.2s}
   .portrait-wrap::before{content:"";position:absolute;inset:-1rem;border-radius:9999px;background:radial-gradient(circle,rgba(110,168,254,.3),rgba(139,92,246,.05));filter:blur(30px);animation:glow-pulse 3s ease-in-out infinite}
   .portrait-wrap::after{content:"";position:absolute;inset:-0.25rem;border-radius:9999px;background:rgba(110,168,254,.08);backdrop-filter:blur(15px);border:1px solid rgba(110,168,254,.25)}
-  .portrait{position:relative;width:14rem;height:14rem;border-radius:9999px;object-fit:cover;border:2px solid rgba(110,168,254,.4);box-shadow:var(--shadow-glow);transition:all 0.3s}
+  .portrait{position:relative;width:14rem;height:14rem;border-radius:9999px;background-image:url("assets/nitin-portrait.jpeg");background-size:cover;background-position:center;background-repeat:no-repeat;border:2px solid rgba(110,168,254,.4);box-shadow:var(--shadow-glow);transition:all 0.3s}
   .portrait:hover{border-color:rgba(110,168,254,.7);box-shadow:0 15px 50px -10px rgba(110,168,254,.4)}
   @media(min-width:640px){.portrait{width:16rem;height:16rem}}
   @media(min-width:768px){.portrait{width:20rem;height:20rem}}
@@ -134,7 +134,7 @@
   .card:hover .project h3{color:var(--primary)}
   .project p{color:var(--muted);font-size:.9rem;margin:1rem 0;flex:1}
   .project-header{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start}
-  .icon-btn{display:inline-flex;width:2.25rem;height:2.25rem;align-items:center;justify-center;border:1px solid rgba(110,168,254,.1);border-radius:.375rem;color:var(--muted);transition:all 0.3s;flex-shrink:0;background:rgba(11,15,23,.6);backdrop-filter:blur(10px)}
+  .icon-btn{display:inline-flex;width:2.25rem;height:2.25rem;align-items:center;justify-content:center;border:1px solid rgba(110,168,254,.1);border-radius:.375rem;color:var(--muted);transition:all 0.3s;flex-shrink:0;background:rgba(11,15,23,.6);backdrop-filter:blur(10px)}
   .icon-btn:hover{color:var(--primary);border-color:rgba(110,168,254,.5);transform:scale(1.15);box-shadow:0 0 15px rgba(110,168,254,.2)}
   .link-out{margin-top:1.25rem;display:inline-flex;align-items:center;gap:.375rem;color:var(--primary);font-weight:600;font-size:.875rem;transition:all 0.3s}
   .link-out:hover{gap:.75rem;text-shadow:0 0 10px rgba(110,168,254,.3)}
@@ -204,7 +204,7 @@
       </div>
     </div>
     <div class="portrait-wrap">
-      <img class="portrait" src="assets/nitin-portrait.jpeg" alt="Portrait of Nitinkumar Hiremath" width="320" height="320" />
+      <div class="portrait" role="img" aria-label="Portrait of Nitinkumar Hiremath"></div>
     </div>
   </div>
 </section>
