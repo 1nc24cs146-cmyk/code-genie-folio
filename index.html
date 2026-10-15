@@ -131,13 +131,24 @@
   /* Projects */
   .project{display:flex;flex-direction:column;height:100%}
   .project h3{margin:0;font-family:'Space Grotesk',sans-serif;font-size:1.25rem;font-weight:600;line-height:1.3;transition:color 0.3s}
-  .card:hover .project h3{color:var(--primary)}
+  .card:hover h3, .project:hover h3{color:var(--primary)}
   .project p{color:var(--muted);font-size:.9rem;margin:1rem 0;flex:1}
   .project-header{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start}
-  .icon-btn{display:inline-flex;width:2.25rem;height:2.25rem;align-items:center;justify-content:center;border:1px solid rgba(110,168,254,.1);border-radius:.375rem;color:var(--muted);transition:all 0.3s;flex-shrink:0;background:rgba(11,15,23,.6)}
+  .badge-featured{display:inline-flex;align-items:center;gap:.35rem;font-size:.7rem;font-weight:600;color:var(--primary);background:rgba(110,168,254,.1);border:1px solid rgba(110,168,254,.25);padding:.2rem .55rem;border-radius:9999px;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.05em}
+  .icon-btn{display:inline-flex;width:2.25rem;height:2.25rem;align-items:center;justify-content:center;border:1px solid rgba(110,168,254,.1);border-radius:.375rem;color:var(--muted);transition:all 0.3s;flex-shrink:0;background:rgba(110,168,254,.08)}
   .icon-btn:hover{color:var(--primary);border-color:rgba(110,168,254,.5);transform:scale(1.15);box-shadow:0 0 15px rgba(110,168,254,.2)}
+  .project-actions{margin-top:auto;padding-top:1.25rem;display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center}
   .link-out{margin-top:1.25rem;display:inline-flex;align-items:center;gap:.375rem;color:var(--primary);font-weight:600;font-size:.875rem;transition:all 0.3s}
+  .project-actions .link-out{margin-top:0}
   .link-out:hover{gap:.75rem;text-shadow:0 0 10px rgba(110,168,254,.3)}
+
+  /* Cert cards */
+  .cert-card{display:flex;flex-direction:column;justify-content:center;text-decoration:none;cursor:pointer;padding:1.25rem 1.35rem}
+  .cert-card:hover .icon-arrow{transform:translate(2px, -2px);color:var(--text)}
+  .cert-card:hover .cert-title{color:var(--primary)}
+  .cert-title{font-weight:600;font-size:0.95rem;color:var(--text);line-height:1.35;transition:color 0.2s}
+  .cert-sub{font-size:0.75rem;color:var(--muted);margin-top:0.35rem}
+  .icon-arrow{color:var(--primary);font-size:0.95rem;transition:all 0.2s;flex-shrink:0}
 
   /* Timeline */
   ol.timeline{list-style:none;padding:0 0 0 .75rem;margin:0;border-left:2px solid rgba(110,168,254,.3);transition:border-color 0.3s}
@@ -195,7 +206,7 @@
       <div class="cta-row">
         <a class="btn btn-primary" href="#contact">Contact Me →</a>
         <a class="btn btn-outline" href="#projects">View Projects</a>
-        <a class="btn btn-outline" href="resume/nitin-resume.pdf" target="_blank" rel="noopener" download>Resume</a>
+        <a class="btn btn-outline" href="resume/NITIN_RESUME3.pdf" target="_blank" rel="noopener" download="NITIN_RESUME3.pdf">Resume</a>
       </div>
       <div class="socials">
         <a href="https://www.linkedin.com/in/nitin-kumar-701157381" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
@@ -216,10 +227,48 @@
   <div class="container">
     <p class="eyebrow">About</p><h2>A bit about me.</h2>
     <div class="about-grid">
-      <p style="font-size:1.05rem;color:var(--muted);margin:0">I'm a Computer Science Engineering student skilled in <strong style="color:var(--text)">Java, Python, SQL, HTML, CSS, JavaScript, and Node.js</strong>, with a strong foundation in software development, database management, and problem-solving. I love turning ideas into products — especially at the intersection of <strong style="color:var(--text)">Generative AI, agents, and automation</strong>.</p>
+      <div style="display:flex;flex-direction:column;gap:1.25rem">
+        <p style="font-size:1.05rem;line-height:1.75;color:var(--muted);margin:0">
+          I'm a <strong style="color:var(--text)">Computer Science Engineering</strong> undergraduate at <strong style="color:var(--text)">Nagarjuna College of Engineering and Technology (NCET), Bengaluru</strong> (2024–2028), passionate about building resilient full-stack web applications, intelligent autonomous systems, and scalable backend services.
+        </p>
+
+        <p style="font-size:1.02rem;line-height:1.75;color:var(--muted);margin:0">
+          My primary development stack spans <strong style="color:var(--text)">Java, Python, TypeScript, React.js, Node.js, FastAPI, and SQL/NoSQL databases (MySQL, MongoDB, Supabase)</strong>. I love turning complex ideas into functional, production-ready products — especially at the intersection of <strong style="color:var(--text)">Generative AI, multimodal agents, and workflow automation</strong>.
+        </p>
+
+        <p style="font-size:1.02rem;line-height:1.75;color:var(--muted);margin:0">
+          From architecting <strong style="color:var(--text)">InterViewX</strong> (an AI mock interview platform featuring real-time speech evaluation and candidate scoring) to building <strong style="color:var(--text)">Aero's Eye View</strong> (a real-time 3D Earth intelligence and disaster analytics console with ML flood predictions) and engineering autonomous desktop systems like <strong style="color:var(--text)">AIassistant &amp; JARVIS</strong> (powered by Google's Gemini Live API), my focus is always on writing clean, maintainable code paired with intuitive user experiences.
+        </p>
+
+        <p style="font-size:1.02rem;line-height:1.75;color:var(--muted);margin:0">
+          Beyond development, I have a deep analytical grounding with <strong style="color:var(--text)">500+ algorithmic problems solved</strong> across CodeChef and LeetCode. I continually sharpen my capabilities through hands-on hackathons and specialized credentials — holding <strong style="color:var(--text)">10+ verified certifications</strong> from <strong style="color:var(--text)">Microsoft, Oracle, Cisco, Red Hat, and MongoDB</strong>.
+        </p>
+
+        <div style="display:flex;flex-wrap:wrap;gap:.6rem;padding-top:.35rem">
+          <span class="chip-primary">⚡ Full-Stack Engineering</span>
+          <span class="chip-primary">🌐 3D Geospatial &amp; Earth AI</span>
+          <span class="chip-primary">🤖 Multimodal Voice &amp; Agents</span>
+          <span class="chip-primary">🧩 500+ DSA Problems Solved</span>
+          <span class="chip-primary">🎓 B.E. CSE @ NCET Bengaluru</span>
+        </div>
+      </div>
+
       <div>
-        <div class="stat stagger-1"><div class="icon-box">🚀</div><div class="stat-num">500+</div><div class="muted" style="font-size:.875rem">Problems solved</div></div>
-        <div class="stat stagger-2"><div class="icon-box">✨</div><div class="stat-num">7+</div><div class="muted" style="font-size:.875rem">Certifications</div></div>
+        <div class="stat stagger-1">
+          <div class="icon-box">🚀</div>
+          <div class="stat-num">500+</div>
+          <div class="muted" style="font-size:.875rem">Problems solved (CodeChef &amp; LeetCode)</div>
+        </div>
+        <div class="stat stagger-2">
+          <div class="icon-box">✨</div>
+          <div class="stat-num">10+</div>
+          <div class="muted" style="font-size:.875rem">Industry Certifications</div>
+        </div>
+        <div class="stat stagger-3" style="margin-bottom:0">
+          <div class="icon-box">🎓</div>
+          <div class="stat-num" style="font-size:1.3rem">B.E. CSE</div>
+          <div class="muted" style="font-size:.875rem">NCET Bengaluru &bull; 2024–2028</div>
+        </div>
       </div>
     </div>
   </div>
@@ -230,11 +279,12 @@
   <div class="container">
     <p class="eyebrow">Skills</p><h2>Tools I work with.</h2>
     <div class="grid grid-3">
-      <div class="card stagger-1"><h3 class="display" style="margin:0 0 1rem;font-size:1.125rem">Languages</h3><div class="chip-row" style="margin:0"><span class="chip">C</span><span class="chip">Java</span><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">NoSQL</span></div></div>
-      <div class="card stagger-2"><h3 class="display" style="margin:0 0 1rem;font-size:1.125rem">Web Technologies</h3><div class="chip-row" style="margin:0"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">Node.js</span></div></div>
-      <div class="card stagger-3"><h3 class="display" style="margin:0 0 1rem;font-size:1.125rem">Databases</h3><div class="chip-row" style="margin:0"><span class="chip">MySQL</span><span class="chip">MongoDB</span></div></div>
-      <div class="card stagger-4"><h3 class="display" style="margin:0 0 1rem;font-size:1.125rem">Developer Tools</h3><div class="chip-row" style="margin:0"><span class="chip">GitHub</span><span class="chip">VS Code</span></div></div>
-      <div class="card stagger-5"><h3 class="display" style="margin:0 0 1rem;font-size:1.125rem">Concepts</h3><div class="chip-row" style="margin:0"><span class="chip">DBMS</span><span class="chip">Data Structures &amp; Algorithms</span></div></div>
+      <div class="card stagger-1"><h3 class="display" style="margin:0 0 1rem;font-size:1.125rem">Languages</h3><div class="chip-row" style="margin:0"><span class="chip">C</span><span class="chip">Java</span><span class="chip">Python</span><span class="chip">TypeScript</span><span class="chip">SQL</span></div></div>
+      <div class="card stagger-2"><h3 class="display" style="margin:0 0 1rem;font-size:1.125rem">Web Technologies</h3><div class="chip-row" style="margin:0"><span class="chip">React.js</span><span class="chip">Node.js</span><span class="chip">FastAPI</span><span class="chip">CesiumJS</span><span class="chip">HTML</span><span class="chip">CSS</span></div></div>
+      <div class="card stagger-3"><h3 class="display" style="margin:0 0 1rem;font-size:1.125rem">AI &amp; Automation</h3><div class="chip-row" style="margin:0"><span class="chip">Gemini Live API</span><span class="chip">Voice AI</span><span class="chip">Computer Vision</span><span class="chip">AI Agents</span><span class="chip">XGBoost / ML</span></div></div>
+      <div class="card stagger-4"><h3 class="display" style="margin:0 0 1rem;font-size:1.125rem">Databases</h3><div class="chip-row" style="margin:0"><span class="chip">MySQL</span><span class="chip">MongoDB</span><span class="chip">Supabase</span></div></div>
+      <div class="card stagger-5"><h3 class="display" style="margin:0 0 1rem;font-size:1.125rem">Developer Tools</h3><div class="chip-row" style="margin:0"><span class="chip">GitHub</span><span class="chip">Docker</span><span class="chip">VS Code</span></div></div>
+      <div class="card stagger-6"><h3 class="display" style="margin:0 0 1rem;font-size:1.125rem">Concepts</h3><div class="chip-row" style="margin:0"><span class="chip">DBMS</span><span class="chip">DSA</span><span class="chip">PWA</span><span class="chip">REST APIs</span></div></div>
     </div>
   </div>
 </section>
@@ -246,21 +296,90 @@
     <div class="grid grid-2">
       <article class="card project stagger-1">
         <div class="project-header">
-          <h3>Blockchain-Based Digital Credential Verification System</h3>
-          <a class="icon-btn" href="https://github.com/1nc24cs146-cmyk" target="_blank" rel="noopener" aria-label="GitHub">↗</a>
+          <div>
+            <span class="badge-featured"><span class="dot-pulse" style="width:.375rem;height:.375rem"></span> Featured AI Platform</span>
+            <h3>InterViewX – AI Mock Interview Platform</h3>
+          </div>
+          <div style="display:flex;gap:.5rem;flex-shrink:0">
+            <a class="icon-btn" href="https://aiinterviewcoach-3.onrender.com" target="_blank" rel="noopener" aria-label="Live Demo" title="Live Demo">🌐</a>
+            <a class="icon-btn" href="https://github.com/1nc24cs146-cmyk/InterViewX" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub Repository">↗</a>
+          </div>
         </div>
-        <p>A blockchain-based platform for secure verification of academic and personal credentials, using face and thumb verification for authentication, reducing fake certificates and document forgery through decentralized validation.</p>
-        <div class="chip-row" style="margin:0"><span class="chip-primary">Blockchain</span><span class="chip-primary">Database Management</span><span class="chip-primary">Face Verification</span><span class="chip-primary">Thumb Verification</span></div>
-        <a class="link-out" href="https://github.com/1nc24cs146-cmyk" target="_blank" rel="noopener">View on GitHub ↗</a>
+        <p>An enterprise-grade, full-stack AI interview preparation platform featuring real-time speech evaluation, Web Speech API &amp; Whisper transcription, ATS resume scoring, 1,200+ engineering colleges dataset, and instant feedback. Built as a cross-platform PWA with automated version sync and native notifications.</p>
+        <div class="chip-row" style="margin:0"><span class="chip-primary">React 18</span><span class="chip-primary">TypeScript</span><span class="chip-primary">Node.js</span><span class="chip-primary">FastAPI</span><span class="chip-primary">Supabase</span><span class="chip-primary">Docker</span><span class="chip-primary">PWA</span></div>
+        <div class="project-actions">
+          <a class="link-out" href="https://aiinterviewcoach-3.onrender.com" target="_blank" rel="noopener">Live Demo ↗</a>
+          <a class="link-out" style="color:var(--muted)" href="https://github.com/1nc24cs146-cmyk/InterViewX" target="_blank" rel="noopener">View on GitHub ↗</a>
+        </div>
       </article>
+
       <article class="card project stagger-2">
         <div class="project-header">
-          <h3>CertiEngine – Online Certification Platform</h3>
-          <a class="icon-btn" href="https://github.com/1nc24cs146-cmyk" target="_blank" rel="noopener" aria-label="GitHub">↗</a>
+          <div>
+            <span class="badge-featured"><span class="dot-pulse" style="width:.375rem;height:.375rem"></span> 3D Geospatial &amp; ML Intelligence</span>
+            <h3>Aero's Eye View – Real-Time Earth Intelligence Console</h3>
+          </div>
+          <a class="icon-btn" href="https://github.com/1nc24cs146-cmyk/Aero-s-Eye-View" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub Repository">↗</a>
         </div>
-        <p>A web-based certification platform for Java, Python, and C programming courses with an interactive enrollment/certification UI and a Node.js-powered backend for managing users, courses, and records.</p>
-        <div class="chip-row" style="margin:0"><span class="chip-primary">React.js</span><span class="chip-primary">Node.js</span><span class="chip-primary">HTML</span><span class="chip-primary">CSS</span></div>
-        <a class="link-out" href="https://github.com/1nc24cs146-cmyk" target="_blank" rel="noopener">View on GitHub ↗</a>
+        <p>A real-time planetary monitoring and disaster analytics console built with CesiumJS and Google Photorealistic 3D Tiles. Features live global ADS-B flight telemetry, marine vessel AIS tracking, orbital satellite propagation, NASA FIRMS wildfire detection, custom GLSL sensor shaders, and an ML-driven Flash Flood Prediction system (XGBoost, 99.8% recall) across 50+ Indian cities and Himalayan districts.</p>
+        <div class="chip-row" style="margin:0"><span class="chip-primary">CesiumJS</span><span class="chip-primary">3D Tiles</span><span class="chip-primary">WebGL / GLSL</span><span class="chip-primary">Python</span><span class="chip-primary">Flask</span><span class="chip-primary">XGBoost</span><span class="chip-primary">ADS-B &amp; AIS</span><span class="chip-primary">satellite.js</span><span class="chip-primary">GeoJSON</span></div>
+        <div class="project-actions">
+          <a class="link-out" href="https://github.com/1nc24cs146-cmyk/Aero-s-Eye-View" target="_blank" rel="noopener">View on GitHub ↗</a>
+        </div>
+      </article>
+
+      <article class="card project stagger-3">
+        <div class="project-header">
+          <div>
+            <span class="badge-featured"><span class="dot-pulse" style="width:.375rem;height:.375rem"></span> Proactive AI &amp; Desktop Automation</span>
+            <h3>AI Assistant – Autonomous Multimodal Desktop Agent</h3>
+          </div>
+          <a class="icon-btn" href="https://github.com/1nc24cs146-cmyk/AIassistant" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub Repository">↗</a>
+        </div>
+        <p>An autonomous cross-platform personal AI agent featuring real-time visual awareness, proactive context-aware check-ins, and continuous background monitoring. Built on Gemini Live API for low-latency voice streaming, persistent memory across sessions, autonomous multi-step task planning, and deep OS automation across Windows, macOS, and Linux.</p>
+        <div class="chip-row" style="margin:0"><span class="chip-primary">Python</span><span class="chip-primary">Gemini Live API</span><span class="chip-primary">OpenCV Vision</span><span class="chip-primary">Proactive 2.0</span><span class="chip-primary">OS Control</span><span class="chip-primary">Agent Mode</span><span class="chip-primary">Hardware Telemetry</span></div>
+        <div class="project-actions">
+          <a class="link-out" href="https://github.com/1nc24cs146-cmyk/AIassistant" target="_blank" rel="noopener">View on GitHub ↗</a>
+        </div>
+      </article>
+
+      <article class="card project stagger-4">
+        <div class="project-header">
+          <div>
+            <span class="badge-featured"><span class="dot-pulse" style="width:.375rem;height:.375rem"></span> Voice AI &amp; Automation</span>
+            <h3>JARVIS – Cross-Platform Voice AI Assistant</h3>
+          </div>
+          <a class="icon-btn" href="https://github.com/1nc24cs146-cmyk/JARVIS2" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub Repository">↗</a>
+        </div>
+        <p>An autonomous real-time voice AI assistant powered by Gemini Live API that can hear, see, understand, and automate system tasks across Windows, macOS, and Linux. Built with a zero-friction drop-in plugin architecture, affective tone analysis, proactive noise rejection, and long-session conversational memory.</p>
+        <div class="chip-row" style="margin:0"><span class="chip-primary">Python</span><span class="chip-primary">Gemini Live API</span><span class="chip-primary">Computer Vision</span><span class="chip-primary">OS Automation</span><span class="chip-primary">Audio Streaming</span><span class="chip-primary">Plugins Engine</span></div>
+        <div class="project-actions">
+          <a class="link-out" href="https://github.com/1nc24cs146-cmyk/JARVIS2" target="_blank" rel="noopener">View on GitHub ↗</a>
+        </div>
+      </article>
+
+      <article class="card project stagger-5">
+        <div class="project-header">
+          <h3>Blockchain-Based Digital Credential Verification System</h3>
+          <a class="icon-btn" href="https://github.com/1nc24cs146-cmyk" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">↗</a>
+        </div>
+        <p>A blockchain-based platform for secure verification of academic and personal credentials, using face and thumb verification for multi-factor authentication, reducing fake certificates and document forgery through immutable decentralized validation.</p>
+        <div class="chip-row" style="margin:0"><span class="chip-primary">Blockchain</span><span class="chip-primary">Database Management</span><span class="chip-primary">Face Verification</span><span class="chip-primary">Thumb Verification</span></div>
+        <div class="project-actions">
+          <a class="link-out" href="https://github.com/1nc24cs146-cmyk" target="_blank" rel="noopener">View on GitHub ↗</a>
+        </div>
+      </article>
+
+      <article class="card project stagger-6">
+        <div class="project-header">
+          <h3>CertiEngine – Online Certification Platform</h3>
+          <a class="icon-btn" href="https://github.com/1nc24cs146-cmyk" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">↗</a>
+        </div>
+        <p>A web-based certification platform for Java, Python, and C programming courses with an interactive enrollment/certification UI and a Node.js-powered backend for managing users, courses, and digital records.</p>
+        <div class="chip-row" style="margin:0"><span class="chip-primary">React.js</span><span class="chip-primary">Node.js</span><span class="chip-primary">HTML5</span><span class="chip-primary">CSS3</span></div>
+        <div class="project-actions">
+          <a class="link-out" href="https://github.com/1nc24cs146-cmyk" target="_blank" rel="noopener">View on GitHub ↗</a>
+        </div>
       </article>
     </div>
   </div>
@@ -271,14 +390,147 @@
   <div class="container">
     <p class="eyebrow">Achievements</p><h2>Certifications &amp; milestones.</h2>
     <div class="grid grid-3">
-      <div class="card stagger-1">🏅 Oracle Java Certificate</div>
-      <div class="card stagger-2">🏅 Red Hat Java Course Completion Certificate</div>
-      <div class="card stagger-3">🏅 Oracle Applied Database Systems 23AI</div>
-      <div class="card stagger-4">🏅 Solved 500+ rated problems on CodeChef</div>
-      <div class="card stagger-5">🏅 Google Cloud – Introduction to Generative AI Studio</div>
-      <div class="card stagger-6">🏅 Cisco Python Essentials 1 Certification</div>
-      <div class="card stagger-1">🏅 Red Hat Python Course Completion Certificate</div>
-      <a class="card stagger-2" href="https://leetcode.com/u/Nitin_810" target="_blank" rel="noopener">🏅 Active problem solver on LeetCode</a>
+      <a class="card cert-card stagger-1" href="https://learn.microsoft.com/en-gb/users/nitinkumarhiremath-9737/credentials/6849271a91883831?ref=https%3A%2F%2Fwww.linkedin.com%2F" target="_blank" rel="noopener">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem">
+          <div style="display:flex;align-items:flex-start;gap:.75rem">
+            <span style="font-size:1.35rem;line-height:1">🏅</span>
+            <div>
+              <div class="cert-title">Microsoft Applied Skills: AI Research Agents</div>
+              <div class="cert-sub">Generate Reports with AI Research Agents · Microsoft</div>
+            </div>
+          </div>
+          <span class="icon-arrow">↗</span>
+        </div>
+      </a>
+
+      <a class="card cert-card stagger-2" href="https://1drv.ms/b/c/0e2a9159bed75764/IQCWkQRPCN_HRbTV_X9scfElAdcqt1aBmf7y9ukKtm7iWtw?e=bPblY5" target="_blank" rel="noopener">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem">
+          <div style="display:flex;align-items:flex-start;gap:.75rem">
+            <span style="font-size:1.35rem;line-height:1">🏅</span>
+            <div>
+              <div class="cert-title">Microsoft GitHub Copilot</div>
+              <div class="cert-sub">GitHub Copilot · Microsoft Learn</div>
+            </div>
+          </div>
+          <span class="icon-arrow">↗</span>
+        </div>
+      </a>
+      <a class="card cert-card stagger-1" href="https://1drv.ms/b/c/0e2a9159bed75764/IQA8mQINR3R0RLR4NSgpe7agARgN-tU1LrG-2GVNwvJMV40" target="_blank" rel="noopener">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem">
+          <div style="display:flex;align-items:flex-start;gap:.75rem">
+            <span style="font-size:1.35rem;line-height:1">🏅</span>
+            <div>
+              <div class="cert-title">Oracle Java Certificate</div>
+              <div class="cert-sub">Java Fundamentals · Oracle Academy</div>
+            </div>
+          </div>
+          <span class="icon-arrow">↗</span>
+        </div>
+      </a>
+
+      <a class="card cert-card stagger-2" href="https://1drv.ms/b/c/0e2a9159bed75764/IQCDVZVjyApyT5uAKe9k2YSxAXnzbDeiV-2unadSqh3Cp2M" target="_blank" rel="noopener">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem">
+          <div style="display:flex;align-items:flex-start;gap:.75rem">
+            <span style="font-size:1.35rem;line-height:1">🏅</span>
+            <div>
+              <div class="cert-title">Red Hat Java Certificate</div>
+              <div class="cert-sub">Java EE (AD183) · Red Hat Academy</div>
+            </div>
+          </div>
+          <span class="icon-arrow">↗</span>
+        </div>
+      </a>
+
+      <a class="card cert-card stagger-3" href="https://1drv.ms/b/c/0e2a9159bed75764/IQCx2gjeMRjCS4Muj--Ggqf2AdLGf8pMdU4lR5lJ5YABwok" target="_blank" rel="noopener">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem">
+          <div style="display:flex;align-items:flex-start;gap:.75rem">
+            <span style="font-size:1.35rem;line-height:1">🏅</span>
+            <div>
+              <div class="cert-title">Oracle Applied Database Systems 23ai</div>
+              <div class="cert-sub">Database Systems · Oracle Academy</div>
+            </div>
+          </div>
+          <span class="icon-arrow">↗</span>
+        </div>
+      </a>
+
+      <a class="card cert-card stagger-4" href="https://1drv.ms/b/c/0e2a9159bed75764/IQBk9HR8CdrOQ6R2lY3iMqrMAeAVevhf7O_wACRvf7AGrKE" target="_blank" rel="noopener">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem">
+          <div style="display:flex;align-items:flex-start;gap:.75rem">
+            <span style="font-size:1.35rem;line-height:1">🏅</span>
+            <div>
+              <div class="cert-title">MongoDB CRUD Operations</div>
+              <div class="cert-sub">Proof of Completion · MongoDB Inc</div>
+            </div>
+          </div>
+          <span class="icon-arrow">↗</span>
+        </div>
+      </a>
+
+      <a class="card cert-card stagger-5" href="https://1drv.ms/b/c/0e2a9159bed75764/IQB_CcvciAHUR5uopJ7oU-jYAc1hEXrJADCDZ8mKtzRCQNY" target="_blank" rel="noopener">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem">
+          <div style="display:flex;align-items:flex-start;gap:.75rem">
+            <span style="font-size:1.35rem;line-height:1">🏅</span>
+            <div>
+              <div class="cert-title">Google Cloud GenAI Studio</div>
+              <div class="cert-sub">Generative AI Studio · Simplilearn</div>
+            </div>
+          </div>
+          <span class="icon-arrow">↗</span>
+        </div>
+      </a>
+
+      <a class="card cert-card stagger-6" href="https://1drv.ms/b/c/0e2a9159bed75764/IQBzOuwhTOCnRYKFo-9Meo43AdTtskBE4Eo70i6EGjRnYiA" target="_blank" rel="noopener">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem">
+          <div style="display:flex;align-items:flex-start;gap:.75rem">
+            <span style="font-size:1.35rem;line-height:1">🏅</span>
+            <div>
+              <div class="cert-title">Cisco Python Essentials 1</div>
+              <div class="cert-sub">Python Institute · Cisco Networking</div>
+            </div>
+          </div>
+          <span class="icon-arrow">↗</span>
+        </div>
+      </a>
+
+      <a class="card cert-card stagger-1" href="https://1drv.ms/b/c/0e2a9159bed75764/IQCukNSihGCKR7GSGEOvXHgaAQOiAnM8lnQDiJSJkO1mTC4" target="_blank" rel="noopener">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem">
+          <div style="display:flex;align-items:flex-start;gap:.75rem">
+            <span style="font-size:1.35rem;line-height:1">🏅</span>
+            <div>
+              <div class="cert-title">Red Hat Python Certificate</div>
+              <div class="cert-sub">Python (AD141) · Red Hat Academy</div>
+            </div>
+          </div>
+          <span class="icon-arrow">↗</span>
+        </div>
+      </a>
+
+      <a class="card cert-card stagger-2" href="https://1drv.ms/b/c/0e2a9159bed75764/IQAXIQ6plQpNQKfijbV0jDevAWSFwU9zVNtszmQNeYbOXU4" target="_blank" rel="noopener">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem">
+          <div style="display:flex;align-items:flex-start;gap:.75rem">
+            <span style="font-size:1.35rem;line-height:1">🏅</span>
+            <div>
+              <div class="cert-title">Solved 500+ on CodeChef</div>
+              <div class="cert-sub">500 Difficulty Rating · CodeChef Pro</div>
+            </div>
+          </div>
+          <span class="icon-arrow">↗</span>
+        </div>
+      </a>
+
+      <a class="card cert-card stagger-3" href="https://leetcode.com/u/Nitin_810" target="_blank" rel="noopener">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem">
+          <div style="display:flex;align-items:flex-start;gap:.75rem">
+            <span style="font-size:1.35rem;line-height:1">🏅</span>
+            <div>
+              <div class="cert-title">Problem Solver on LeetCode</div>
+              <div class="cert-sub">Data Structures &amp; DSA · LeetCode</div>
+            </div>
+          </div>
+          <span class="icon-arrow">↗</span>
+        </div>
+      </a>
     </div>
   </div>
 </section>
