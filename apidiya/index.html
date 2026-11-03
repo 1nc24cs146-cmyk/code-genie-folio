@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ApiDiya — API testing workspace for VS Code and Antigravity</title>
+<meta name="description" content="ApiDiya is a Postman-style API testing workspace for VS Code and Antigravity. Send requests, run test suites, mock APIs locally — all data stays on your device.">
+<style>
+  :root{--bg:#0f172a;--card:#1e293b;--gold:#f59e0b;--teal:#2dd4bf;--text:#f1f5f9;--muted:#94a3b8;--line:#334155}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+  a{color:var(--teal)}
+  .wrap{max-width:960px;margin:0 auto;padding:48px 24px 64px}
+  header{text-align:center;padding:32px 0 16px}
+  .logo{font-size:64px;line-height:1}
+  h1{font-size:48px;margin:8px 0 4px;letter-spacing:-1px}
+  h1 span{color:var(--gold)}
+  .tag{font-size:20px;color:var(--muted);max-width:640px;margin:0 auto}
+  .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:28px 0 8px}
+  .btn{display:inline-block;padding:12px 24px;border-radius:10px;text-decoration:none;font-weight:600}
+  .btn-primary{background:var(--gold);color:#111827}
+  .btn-ghost{border:1px solid var(--line);color:var(--text)}
+  .counter{text-align:center;color:var(--muted);font-size:14px}
+  .counter strong{color:var(--text)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:40px 0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .card h3{margin:0 0 6px;font-size:18px}
+  .card p{margin:0;color:var(--muted);font-size:15px}
+  h2{font-size:26px;margin:40px 0 12px}
+  ol,ul{color:var(--muted)}
+  ol li,ul li{margin:6px 0}
+  code{background:#0b1220;border:1px solid var(--line);border-radius:6px;padding:2px 6px;color:#fde68a;font-size:14px}
+  .privacy{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:14px;padding:20px}
+  footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:13px;text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo">{<span style="color:var(--gold)">⚡</span>}</div>
+    <h1>Api<span>Diya</span></h1>
+    <p class="tag">A light that shows whether an API works. A Postman-style testing workspace for VS Code and Antigravity — requests, collections, test suites and a local mock server, with no cloud and no account.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="https://open-vsx.org/extension/apidiya/api-testing-studio">Install on Antigravity (Open VSX)</a>
+      <a class="btn btn-ghost" href="https://github.com/1nc24cs146-cmyk/API-Testing-Studio">View source on GitHub</a>
+    </div>
+    <p class="counter"><strong id="dlCount">—</strong> downloads on Open VSX · Latest version <strong>0.2.1</strong></p>
+  </header>
+
+  <div class="grid">
+    <div class="card">
+      <h3>🚀 Send any request</h3>
+      <p>GET, POST, PUT, PATCH and DELETE, with headers, query params, JSON/raw bodies and Bearer, API key or Basic auth.</p>
+    </div>
+    <div class="card">
+      <h3>📁 Collections &amp; environments</h3>
+      <p>Organise requests into collections and switch environments with <code>{{baseUrl}}</code> variable substitution.</p>
+    </div>
+    <div class="card">
+      <h3>✅ Test suites &amp; assertions</h3>
+      <p>Check status, response time, JSON values, headers and body content — evaluated as data, never as a script. Generate starter assertions from a real response.</p>
+    </div>
+    <div class="card">
+      <h3>🔄 Import &amp; export</h3>
+      <p>Import Postman v2.1 JSON, OpenAPI 3 JSON or ApiDiya JSON. Export any collection as ApiDiya JSON.</p>
+    </div>
+    <div class="card">
+      <h3>🧪 Local mock server</h3>
+      <p>Define method + path + status + body mocks and serve them on your own machine (default port 3101) — unmatched paths return 404.</p>
+    </div>
+    <div class="card">
+      <h3>🕘 History</h3>
+      <p>Every request is logged with method, URL, status, duration and time, and can be re-run in one click.</p>
+    </div>
+  </div>
+
+  <h2>Install</h2>
+  <ol>
+    <li>Open VS Code or Antigravity.</li>
+    <li>Open Extensions, search <strong>ApiDiya</strong>, and install it — or use <strong>… → Install from VSIX…</strong> with a VSIX from the GitHub repo.</li>
+    <li>Click the ApiDiya icon in the activity bar, or run <strong>ApiDiya: Open</strong> from the Command Palette.</li>
+  </ol>
+
+  <h2>Privacy — stored on your device only</h2>
+  <div class="privacy">
+    <p style="margin-top:0">Collections, environments, test suites, test runs, mocks and history are stored in the editor’s local storage on your device only. ApiDiya never uploads them to a cloud, and there is no telemetry or analytics.</p>
+    <p>Saved auth tokens and API keys live in your operating system’s keychain (VS Code SecretStorage), not in stored requests or history — history shows only <code>***</code>.</p>
+    <p style="margin-bottom:0">The only network traffic is the request you press Send/Run on, sent to the URL you typed, plus the local mock server on your own machine.</p>
+  </div>
+
+  <h2>Not yet included</h2>
+  <ul>
+    <li>A full MCP server and AI-model test generation — planned next, not claimed here.</li>
+    <li>Team sharing or cloud sync — deliberately not included; everything stays local.</li>
+  </ul>
+
+  <footer>
+    ApiDiya is an unofficial, original extension by NitinKumar Hiremath. It is not affiliated with Postman, Thunder Client, VS Code or Antigravity.<br>
+    Extension ID on Open VSX: <code>apidiya.api-testing-studio</code> · Source: <a href="https://github.com/1nc24cs146-cmyk/API-Testing-Studio">github.com/1nc24cs146-cmyk/API-Testing-Studio</a>
+  </footer>
+</div>
+<script>
+  fetch('https://open-vsx.org/api/apidiya/api-testing-studio')
+    .then(function (r) { return r.json(); })
+    .then(function (d) {
+      if (d && typeof d.downloadCount === 'number') {
+        document.getElementById('dlCount').textContent = d.downloadCount.toLocaleString('en-IN');
+      }
+    })
+    .catch(function () { /* counter stays blank if the API is unreachable */ });
+</script>
+</body>
+</html>
