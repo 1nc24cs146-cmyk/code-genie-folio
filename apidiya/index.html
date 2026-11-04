@@ -39,6 +39,7 @@
   .btn:hover{background:var(--teal);border-color:var(--teal)}
   .btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
   .btn.ghost:hover{border-color:var(--teal-deep);color:var(--teal-deep);background:transparent}
+  .btn.small{padding:7px 14px;font-size:14px}
   @media (prefers-color-scheme: dark){ .btn{background:#0f766e;border-color:#0f766e} .btn:hover{background:#14b8a6;border-color:#14b8a6} }
   .hero{padding:58px 0 30px}
   .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:44px;align-items:start}
@@ -105,9 +106,9 @@
 </head>
 <body>
 <header class="nav"><div class="wrap nav-inner">
-  <a class="wordmark" href="#">ApiDiya <small>0.2.1</small></a>
+  <a class="wordmark" href="#">ApiDiya <small>v0.2.1</small></a>
   <nav class="links"><a href="#features">Features</a><a href="#install">Install</a><a href="#privacy">Privacy</a></nav>
-  <a class="btn" href="https://open-vsx.org/extension/apidiya/api-testing-studio">Install on Open VSX</a>
+  <a class="btn small nav-cta" href="#get">Get the extension</a>
 </div></header>
 
 <div class="wrap">
@@ -116,15 +117,10 @@
     <h1>A light that shows whether an <em>API works</em></h1>
     <p class="lede">A <strong>Postman-style testing workspace</strong> for VS Code and Antigravity — send requests, save collections, run test suites, and mock APIs locally, with no cloud and no account.</p>
     <div class="cta-row">
-      <a class="btn" href="https://open-vsx.org/extension/apidiya/api-testing-studio">Install on Antigravity (Open VSX)</a>
+      <a class="btn" href="#get">Get ApiDiya</a>
       <a class="btn ghost" href="https://github.com/1nc24cs146-cmyk/API-Testing-Studio">View source on GitHub</a>
     </div>
     <p class="setup-line">By NitinKumar Hiremath · Extension ID <span class="mono">apidiya.api-testing-studio</span></p>
-    <div class="dl-box"><div class="dl-main"><div class="dl-icon">↓</div><div>
-      <div class="dl-number" id="downloads">180</div>
-      <div class="dl-label">downloads on Open VSX</div>
-      <p class="dl-sub">Live count, updates automatically · 0 reviews so far</p>
-    </div></div><span class="dl-live">● LIVE</span></div>
   </div>
   <div>
     <div class="panel-shell" aria-label="ApiDiya panel preview">
@@ -140,6 +136,10 @@ GET <code>{{baseUrl}}/users</code>
       <div class="panel-foot"><span>Open VSX downloads: live in the sidebar</span><span class="ready">● Local only — no cloud</span></div>
     </div>
     <p class="panel-caption">A preview of the sidebar. <b>Nothing is sent except the request you press Send on.</b></p>
+    <div class="dl-box" aria-label="Live download count">
+      <div class="dl-main"><div class="dl-icon">⬇</div><div><div><span class="dl-number" id="downloads">180</span> <span class="dl-label">downloads on Antigravity</span></div><p class="dl-sub">People using ApiDiya in Antigravity, right now and counting</p></div></div>
+      <span class="dl-live">● LIVE</span>
+    </div>
   </div></div></div>
 
   <div class="facts">
@@ -199,6 +199,7 @@ GET <code>{{baseUrl}}/users</code>
   </div></section>
 
   <footer>
+    <p><a href="#features">Features</a> · <a href="#install">Install</a> · <a href="#privacy">Privacy</a></p>
     ApiDiya by NitinKumar Hiremath · Extension ID <span class="mono">apidiya.api-testing-studio</span> · MIT License<br />
     This is an independent, original extension. It is not affiliated with Postman, Thunder Client, VS Code, Antigravity, or Open VSX.
   </footer>
