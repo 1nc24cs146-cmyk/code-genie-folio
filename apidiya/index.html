@@ -43,6 +43,7 @@
   .btn.small{padding:7px 14px;font-size:14px}
   @media (prefers-color-scheme: dark){ .btn{background:#0f766e;border-color:#0f766e} .btn:hover{background:#14b8a6;border-color:#14b8a6} }
   .hero{padding:58px 0 30px}
+  .hero-logo{margin:0 0 18px}.hero-logo svg{width:96px;height:96px;display:block}
   .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:44px;align-items:start}
   .version-pill{display:inline-flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:13.5px;font-weight:500;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:5px 12px;background:var(--surface)}
   .version-pill b{color:var(--ink)}
@@ -114,6 +115,7 @@
 
 <div class="wrap">
   <div class="hero"><div class="hero-grid"><div>
+    <div class="hero-logo"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><rect width="128" height="128" rx="24" fill="#0f172a"/><text x="64" y="82" font-family="monospace" font-size="52" font-weight="bold" fill="#2dd4bf" text-anchor="middle">{ }</text></svg></div>
     <span class="version-pill"><span class="dot"></span><b>Version 0.2.1</b> · VS Code &amp; Antigravity · MIT License</span>
     <h1>A light that shows whether an <em>API works</em></h1>
     <p class="lede">A <strong>Postman-style testing workspace</strong> for VS Code and Antigravity — send requests, save collections, run test suites, and mock APIs locally, with no cloud and no account.</p>
