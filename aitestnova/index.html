@@ -127,7 +127,7 @@
 </head>
 <body>
 <header class="nav"><div class="wrap nav-inner">
-  <a class="wordmark" href="#top" aria-label="AITestNova home"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><rect width="128" height="128" rx="24" fill="#10243a"/><text x="64" y="78" font-family="sans-serif" font-size="36" font-weight="bold" fill="#1fc2c9" text-anchor="middle">AI</text><path d="M30 92 L52 70 L64 82 L92 50" stroke="#f5a623" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="92" cy="50" r="6" fill="#f5a623"/></svg>AITestNova <small>v0.3.3</small></a>
+  <a class="wordmark" href="#top" aria-label="AITestNova home"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><rect width="128" height="128" rx="24" fill="#10243a"/><text x="64" y="78" font-family="sans-serif" font-size="36" font-weight="bold" fill="#1fc2c9" text-anchor="middle">AI</text><path d="M30 92 L52 70 L64 82 L92 50" stroke="#f5a623" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="92" cy="50" r="6" fill="#f5a623"/></svg>AITestNova <small class="live-version">v0.3.3</small></a>
   <nav class="links" aria-label="Page"><a href="#features">Features</a><a href="#install">Install</a><a href="#limits">Honest limits</a><a href="#reviews">Reviews</a></nav>
   <a class="btn small nav-cta" href="#get">Get the extension</a>
 </div></header>
@@ -231,7 +231,7 @@ test(<code>'add handles empty input'</code>, () =&gt; {
   // keeps its own version. Keep EMBEDDED_VERSION in sync with the pill.
   var EMBEDDED_VERSION = "0.3.3";
   var API_URL = "https://open-vsx.org/api/aitestnova/aitestnova";
-  var pill = document.querySelector(".live-version");
+  var pills = document.querySelectorAll(".live-version");
   var downloads = document.getElementById("downloads");
   function isNewer(a, b) {
     var pa = String(a).split(".");
@@ -253,7 +253,9 @@ test(<code>'add handles empty input'</code>, () =&gt; {
           downloads.textContent = d.downloadCount.toLocaleString();
         }
         if (d && typeof d.version === "string" && d.version && isNewer(d.version, EMBEDDED_VERSION)) {
-          if (pill) { pill.textContent = "Version " + d.version; }
+          for (var i = 0; i < pills.length; i++) {
+            pills[i].textContent = (pills[i].textContent.indexOf("Version ") === 0 ? "Version " : "v") + d.version;
+          }
         }
       })
       .catch(function () { /* keep the baked-in fallback text visible */ });
