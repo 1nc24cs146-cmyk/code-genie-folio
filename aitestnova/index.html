@@ -1,88 +1,192 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<meta name="description" content="Generate unit tests, record and replay API calls with mocks, run test suites, check coverage, and see a local dashboard — in Antigravity. Multi-model test generation, stability checks, and CI workflow included." />
 <title>AITestNova — Test Studio for Antigravity</title>
-<meta name="description" content="Generate unit tests, record and replay API calls with mocks, run test suites, check coverage, and see a local dashboard — in Antigravity. Multi-model test generation, stability checks, and CI workflow included.">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
+  :root{
+    --bg:#f4f2ec; --surface:#fffdf8; --surface-2:#ebe7dc;
+    --panel:#101512; --panel-2:#171d19; --panel-line:#2a332d;
+    --ink:#1b211d; --muted:#5c665f; --line:#d8d2c4;
+    --teal:#0f766e; --teal-bright:#14b8a6; --teal-deep:#115e59;
+    --amber:#b45309; --radius:14px; --shadow:0 18px 40px rgba(27,33,29,.14);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#0c0f0d; --surface:#131713; --surface-2:#1b211c; --ink:#e8ece7; --muted:#a3ada4; --line:#2a332d; --teal:#2dd4bf; --teal-deep:#5eead4; --shadow:0 18px 40px rgba(0,0,0,.45); }
+  }
   *{box-sizing:border-box}
-  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#0b1220;color:#e6edf3;line-height:1.6}
-  a{color:#2dd4bf}
-  .wrap{max-width:980px;margin:0 auto;padding:24px}
-  header{display:flex;align-items:center;gap:16px;padding:28px 0 8px}
-  .logo{width:64px;height:64px;border-radius:14px;background:#0f2a3d;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:28px;color:#2dd4bf;flex:none}
-  .logo span{color:#f59e0b}
-  h1{margin:0;font-size:42px;line-height:1.1}
-  .tag{font-size:19px;color:#cbd5e1;max-width:760px}
-  .buttons{margin:22px 0;display:flex;flex-wrap:wrap;gap:12px}
-  .btn{display:inline-block;padding:12px 20px;border-radius:10px;text-decoration:none;font-weight:700}
-  .btn.primary{background:#2dd4bf;color:#0b1220}
-  .btn.ghost{border:1px solid #334155;color:#e6edf3}
-  .card{background:#111827;border:1px solid #1f2937;border-radius:14px;padding:20px;margin:18px 0}
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-  h2{font-size:26px;margin:8px 0}
-  h3{margin:0 0 6px}
-  code{background:#1f2937;padding:2px 6px;border-radius:6px;font-size:14px}
-  pre{background:#020617;border:1px solid #1f2937;border-radius:10px;padding:14px;overflow:auto;color:#e6edf3}
-  .stat{font-size:32px;font-weight:800;color:#2dd4bf}
-  .muted{color:#94a3b8}
-  footer{padding:24px 0 40px;color:#94a3b8;font-size:14px}
-  @media (max-width:600px){h1{font-size:32px}}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--teal-deep)}
+  @media (prefers-color-scheme: dark){ a{color:var(--teal)} }
+  ::selection{background:var(--teal);color:#fff}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+  header.nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb, var(--bg) 88%, transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;gap:26px;padding:13px 0;flex-wrap:wrap}
+  .wordmark{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink);font-weight:700;font-size:19px;letter-spacing:-.02em}
+  .wordmark small{font-weight:500;font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:2px 8px}
+  nav.links{display:flex;gap:22px;margin-left:auto;flex-wrap:wrap}
+  nav.links a{color:var(--ink);text-decoration:none;font-size:15px;font-weight:500}
+  nav.links a:hover{color:var(--teal-deep);text-decoration:underline;text-underline-offset:4px}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--teal-deep);color:#fff;text-decoration:none;font-weight:600;font-size:15px;padding:10px 18px;border-radius:9px;border:1px solid var(--teal-deep);cursor:pointer}
+  .btn:hover{background:var(--teal);border-color:var(--teal)}
+  .btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+  .btn.ghost:hover{border-color:var(--teal-deep);color:var(--teal-deep);background:transparent}
+  @media (prefers-color-scheme: dark){ .btn{background:#0f766e;border-color:#0f766e} .btn:hover{background:#14b8a6;border-color:#14b8a6} }
+  .hero{padding:58px 0 30px}
+  .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:44px;align-items:start}
+  .version-pill{display:inline-flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:13.5px;font-weight:500;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:5px 12px;background:var(--surface)}
+  .version-pill b{color:var(--ink)}
+  .version-pill .dot{width:8px;height:8px;border-radius:50%;background:#059669;flex:none}
+  h1{font-size:clamp(38px,4.6vw,54px);line-height:1.06;letter-spacing:-.03em;margin:20px 0 16px;font-weight:700}
+  h1 em{font-style:normal;color:var(--teal-deep)}
+  @media (prefers-color-scheme: dark){ h1 em{color:var(--teal)} }
+  .lede{font-size:19px;line-height:1.6;color:var(--muted);max-width:34rem;margin:0 0 24px}
+  .lede strong{color:var(--ink);font-weight:600}
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .setup-line{margin-top:18px;font-size:14.5px;color:var(--muted)}
+  .setup-line .mono{font-size:13.5px;color:var(--ink);background:var(--surface-2);padding:2px 7px;border-radius:6px}
+  .dl-box{margin:22px 0 0;max-width:34rem;border:1px solid var(--teal-deep);border-left:5px solid var(--teal);border-radius:16px;padding:16px 18px;background:linear-gradient(135deg,color-mix(in srgb,var(--teal) 12%,var(--bg)),var(--bg) 60%);box-shadow:0 8px 24px rgba(15,118,110,.12);display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .dl-main{display:flex;align-items:center;gap:14px}
+  .dl-icon{width:46px;height:46px;flex:none;display:flex;align-items:center;justify-content:center;font-size:22px;color:#fff;background:var(--teal-deep);border-radius:12px}
+  .dl-number{font-size:34px;font-weight:800;color:var(--ink);letter-spacing:-.02em}
+  .dl-label{color:var(--ink);font-weight:700;font-size:17px}
+  .dl-sub{margin:2px 0 0;font-size:13.5px;color:var(--muted)}
+  .dl-live{flex:none;display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;letter-spacing:.08em;color:var(--teal-deep);background:color-mix(in srgb,var(--teal) 14%,var(--bg));border:1px solid var(--teal);border-radius:99px;padding:6px 10px}
+  .panel-shell{background:var(--panel);color:#dbe4dc;border:1px solid var(--panel-line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+  .panel-top{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--panel-line)}
+  .panel-top .tab-label{font-size:14px;font-weight:600;color:#e8ece7}
+  .panel-top .spacer{flex:1}
+  .panel-body{padding:16px}
+  .panel-body pre{margin:0;white-space:pre-wrap;font-family:"IBM Plex Mono",monospace;font-size:13.5px;line-height:1.6;color:#dbe4dc}
+  .panel-body code{color:#5eead4}
+  .panel-foot{border-top:1px solid var(--panel-line);padding:11px 14px;display:flex;gap:14px;align-items:center;font-size:13px;color:#8fa096;flex-wrap:wrap}
+  .panel-foot .ready{margin-left:auto;color:#34d399;font-weight:600}
+  .panel-caption{margin-top:12px;font-size:13.5px;color:var(--muted);text-align:center}
+  .panel-caption b{color:var(--ink)}
+  .facts{margin:34px 0 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr)}
+  .fact{padding:18px 20px;border-left:1px solid var(--line)}
+  .fact:first-child{border-left:0;padding-left:0}
+  .fact b{display:block;font-size:16px;letter-spacing:-.01em}
+  .fact span{font-size:14px;color:var(--muted)}
+  section.block{padding:64px 0 8px}
+  .section-head{max-width:44rem;margin-bottom:30px}
+  .section-head h2{font-size:clamp(28px,3.4vw,36px);line-height:1.15;letter-spacing:-.025em;margin:0 0 10px}
+  .section-head p{margin:0;color:var(--muted);font-size:18px}
+  .section-head .num{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--teal-deep);font-weight:600;letter-spacing:.06em}
+  @media (prefers-color-scheme: dark){ .section-head .num{color:var(--teal)} }
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px}
+  .card h3{margin:0 0 6px;font-size:18px;letter-spacing:-.01em}
+  .card p{margin:0;color:var(--muted);font-size:15.5px}
+  .steps{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+  .steps li{display:grid;grid-template-columns:56px 1fr;gap:22px;padding:22px 0;border-bottom:1px solid var(--line);align-items:start}
+  .steps .n{font-family:"IBM Plex Mono",monospace;font-size:15px;font-weight:600;color:var(--teal-deep);border:1px solid var(--line);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:var(--surface)}
+  @media (prefers-color-scheme: dark){ .steps .n{color:var(--teal)} }
+  .steps h3{margin:2px 0 4px;font-size:18px;letter-spacing:-.01em}
+  .steps p{margin:0;color:var(--muted);font-size:15.5px}
+  .cta-panel{margin:64px 0 8px;background:var(--panel);color:#dbe4dc;border-radius:18px;padding:34px 36px;border:1px solid var(--panel-line);box-shadow:var(--shadow)}
+  .cta-panel h2{font-size:clamp(28px,3.4vw,38px);line-height:1.12;letter-spacing:-.025em;margin:0 0 12px;color:#fff}
+  .cta-panel p{color:#aab4ab;margin:0 0 20px;font-size:16.5px}
+  .cta-panel .btn{background:#0e7490;border-color:#0e7490}
+  .cta-panel .btn:hover{background:#0891b2;border-color:#0891b2}
+  .cta-panel .btn.ghost{background:transparent;border-color:#33413a;color:#e8ece7}
+  .cta-panel .btn.ghost:hover{border-color:#14b8a6;color:#fff}
+  footer{padding:36px 0 48px;color:var(--muted);font-size:14px;border-top:1px solid var(--line);margin-top:48px}
+  @media (max-width:820px){ .hero-grid{grid-template-columns:1fr} .facts{grid-template-columns:1fr 1fr} .fact:nth-child(3){border-left:0;padding-left:0} }
 </style>
 </head>
 <body>
+<header class="nav"><div class="wrap nav-inner">
+  <a class="wordmark" href="#">AITestNova <small>0.3.3</small></a>
+  <nav class="links"><a href="#features">Features</a><a href="#install">Install</a><a href="#limits">Honest limits</a></nav>
+  <a class="btn" href="https://open-vsx.org/extension/aitestnova/aitestnova">Install on Open VSX</a>
+</div></header>
+
 <div class="wrap">
-  <header>
-    <div class="logo">AI<span>✓</span></div>
-    <div>
-      <h1>AITestNova</h1>
-      <div class="muted">Test Studio for Antigravity · By NitinKumar Hiremath · MIT License</div>
+  <div class="hero"><div class="hero-grid"><div>
+    <span class="version-pill"><span class="dot"></span><b>Version 0.3.3</b> · Antigravity · MIT License</span>
+    <h1>Test Studio for <em>Antigravity</em></h1>
+    <p class="lede">Generate <strong>unit tests</strong>, record and replay API calls with mocks, run test suites, check coverage, and see a local dashboard — in Antigravity. Multi-model test generation, stability checks, and CI workflow included.</p>
+    <div class="cta-row">
+      <a class="btn" href="https://open-vsx.org/extension/aitestnova/aitestnova">Install on Open VSX</a>
+      <a class="btn ghost" href="https://github.com/1nc24cs146-cmyk/AITestNova">View on GitHub</a>
     </div>
-  </header>
+    <p class="setup-line">By NitinKumar Hiremath · Extension ID <span class="mono">aitestnova.aitestnova</span></p>
+    <div class="dl-box"><div class="dl-main"><div class="dl-icon">↓</div><div>
+      <div class="dl-number" id="downloads">362</div>
+      <div class="dl-label">downloads on Open VSX</div>
+      <p class="dl-sub">Live count, updates automatically · 0 reviews so far</p>
+    </div></div><span class="dl-live">● LIVE</span></div>
+  </div>
+  <div>
+    <div class="panel-shell" aria-label="AITestNova panel preview">
+      <div class="panel-top"><span class="tab-label">AITestNova</span><span class="spacer"></span><span style="font-size:13px;color:#8fa096">Unit Tests · Record &amp; Replay · Dashboard</span></div>
+      <div class="panel-body"><pre><span style="color:#8fa096">// generated test — opens for review first</span>
+test(<code>'add handles empty input'</code>, () =&gt; {
+  expect(add(<code>''</code>, <code>0</code>)).toBe(<code>0</code>);
+});
+<span style="color:#8fa096">// replay: 4/4 passed · coverage: 87% (+7 vs baseline)</span></pre></div>
+      <div class="panel-foot"><span>Open VSX downloads: live in the sidebar</span><span class="ready">● Local only — no cloud</span></div>
+    </div>
+    <p class="panel-caption">A preview of the panel. <b>Nothing is saved until you save it.</b> Template tests are starting points, not proof.</p>
+  </div></div></div>
 
-  <p class="tag">Generate unit tests, record and replay API calls with mocks, run test suites, check coverage, and see a local dashboard — in Antigravity. Multi-model test generation, stability checks, and CI workflow included.</p>
-
-  <div class="buttons">
-    <a class="btn primary" href="https://open-vsx.org/extension/aitestnova/aitestnova">Install on Open VSX</a>
-    <a class="btn ghost" href="https://github.com/1nc24cs146-cmyk/AITestNova">View on GitHub</a>
+  <div class="facts">
+    <div class="fact"><b>362 downloads</b><span>on Open VSX, live count above</span></div>
+    <div class="fact"><b>4 languages</b><span>JavaScript / TypeScript, Python, Java, Go</span></div>
+    <div class="fact"><b>Template first</b><span>no model, no key needed</span></div>
+    <div class="fact"><b>Local only</b><span>no cloud dashboard, no telemetry</span></div>
   </div>
 
-  <div class="card">
-    <div class="stat" id="downloads">—</div>
-    <div>downloads on Open VSX <span class="muted">(live count, updates automatically)</span></div>
-    <div class="muted">Latest version: 0.3.3 · Antigravity / VS Code engine ^1.85 · 0 reviews so far — try it and leave a review if it helps you.</div>
-  </div>
-
-  <h2>What it does</h2>
-  <div class="grid">
-    <div class="card"><h3>Unit tests, in one click</h3><p>Click “Generate test” above a function in JavaScript/TypeScript, Python, Java, or Go. Tests open for review first — nothing is saved until you save it.</p></div>
+  <section class="block" id="features"><div class="section-head">
+    <span class="num">01 — FEATURES</span>
+    <h2>What it does</h2>
+    <p>One panel for tests, APIs, suites, coverage, and stability — with review before anything is saved.</p>
+  </div><div class="cards">
+    <div class="card"><h3>Unit tests, in one click</h3><p>Click “Generate test” above a function in JavaScript/TypeScript, Python, Java, or Go. Tests open for review first.</p></div>
     <div class="card"><h3>Tests from a comment</h3><p>Select a comment or spec, and AITestNova turns your spec lines into test cases.</p></div>
-    <div class="card"><h3>Multi-model generation</h3><p>Try up to 3 Ollama or OpenAI-compatible models and keep the best-scoring output. Or use the built-in template mode — no model, no key needed.</p></div>
+    <div class="card"><h3>Multi-model generation</h3><p>Try up to 3 Ollama or OpenAI-compatible models and keep the best-scoring output. Or use template mode, no key needed.</p></div>
     <div class="card"><h3>Record &amp; replay APIs</h3><p>Send &amp; Record saves a real request and response. Replay diffs status and body, mock mode replays without the live server, and normalisation ignores volatile fields like timestamps and ids.</p></div>
-    <div class="card"><h3>Suites, stability &amp; coverage</h3><p>Run API suites in order, replay tests 5 times to catch flakes, and check coverage against a baseline you set. A local dashboard shows replays, coverage, and stability history — no cloud, no telemetry.</p></div>
-    <div class="card"><h3>Download count, visible in the extension</h3><p>Antigravity's own extension-details panel has no downloads row, so AITestNova shows its live Open VSX download count at the top of its own sidebar panel, and in its README. This page's counter above also reads Open VSX live.</p></div>
+    <div class="card"><h3>Suites, stability &amp; coverage</h3><p>Run API suites in order, replay tests 5 times to catch flakes, and check coverage against a baseline you set. A local dashboard shows replays, coverage, and stability history.</p></div>
     <div class="card"><h3>CI &amp; pull requests, locally</h3><p>Generate a GitHub Actions workflow for your stack, commit a saved test file locally, and create a PR description file. Push is never automatic.</p></div>
-  </div>
+    <div class="card"><h3>Download count, visible in the extension</h3><p>Antigravity's own extension-details panel has no downloads row, so AITestNova shows its live Open VSX download count at the top of its own sidebar panel, and in its README.</p></div>
+  </div></section>
 
-  <h2>Install in Antigravity</h2>
-  <div class="card">
-    <ol>
-      <li>Open the Open VSX page for AITestNova and install it, or in Antigravity go to Extensions → … → Install from VSIX and choose the VSIX file.</li>
-      <li>Reload, then click the AITestNova icon in the activity bar.</li>
-      <li>Open a code file and click “AITestNova: Generate test” above a function, or use the Record &amp; Replay tab.</li>
-    </ol>
-    <p class="muted">Template mode needs no account, no API key, and no model. Ollama and OpenAI-compatible models are optional. An OpenAI key, if you set one, is stored in the OS keychain — never in a file.</p>
-  </div>
+  <section class="block" id="install"><div class="section-head">
+    <span class="num">02 — INSTALL</span>
+    <h2>Three steps, then test</h2>
+  </div><ol class="steps">
+    <li><span class="n">1</span><div><h3>Install it</h3><p>Open the Open VSX page for AITestNova and install it, or in Antigravity go to Extensions → … → Install from VSIX and choose the VSIX file.</p></div></li>
+    <li><span class="n">2</span><div><h3>Reload and open the panel</h3><p>Reload, then click the AITestNova icon in the activity bar.</p></div></li>
+    <li><span class="n">3</span><div><h3>Generate or record</h3><p>Open a code file and click “AITestNova: Generate test” above a function, or use the Record &amp; Replay tab.</p></div></li>
+  </ol>
+  <p style="color:var(--muted);font-size:15.5px">Template mode needs no account, no API key, and no model. Ollama and OpenAI-compatible models are optional. An OpenAI key, if you set one, is stored in the OS keychain — never in a file.</p></section>
 
-  <h2>What it does not do, honestly</h2>
-  <div class="card">
+  <section class="block" id="limits"><div class="section-head">
+    <span class="num">03 — HONEST LIMITS</span>
+    <h2>What it does not do</h2>
     <p>No kernel/eBPF traffic capture, no TLS interception, and no database, queue, or gRPC traffic capture. AITestNova only records requests made through its own panel. No cloud PR agent, no auto-push, no cloud dashboard, and no live inline autocomplete — those need a separate server or binary.</p>
-    <p>Template tests are starting points, not proof. Review them, mock dependencies, and adjust assertions before committing.</p>
-  </div>
+  </div></section>
+
+  <section id="get"><div class="cta-panel">
+    <h2>Get AITestNova in your sidebar</h2>
+    <p>Version 0.3.3 · Antigravity / VS Code engine ^1.85 · MIT License · By NitinKumar Hiremath</p>
+    <div class="cta-row">
+      <a class="btn" href="https://open-vsx.org/extension/aitestnova/aitestnova">Install on Open VSX</a>
+      <a class="btn ghost" href="https://github.com/1nc24cs146-cmyk/AITestNova">View on GitHub</a>
+    </div>
+  </div></section>
 
   <footer>
-    AITestNova by NitinKumar Hiremath · Extension ID <code>aitestnova.aitestnova</code> · MIT License<br>
+    AITestNova by NitinKumar Hiremath · Extension ID <span class="mono">aitestnova.aitestnova</span> · MIT License<br />
     This is an independent extension. It is not affiliated with Antigravity, VS Code, or Open VSX.
   </footer>
 </div>
@@ -95,7 +199,7 @@
       }
     })
     .catch(function () {
-      document.getElementById('downloads').textContent = '362+';
+      document.getElementById('downloads').textContent = '362';
     });
 </script>
 </body>
