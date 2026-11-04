@@ -244,6 +244,18 @@ test(<code>'add handles empty input'</code>, () =&gt; {
     location.replace(location.pathname + "?v=" + Date.now() + location.hash);
   }
   if (bannerBtn) { bannerBtn.addEventListener("click", hardRefresh); }
+  function isNewer(a, b) {
+    var pa = String(a).split(".");
+    var pb = String(b).split(".");
+    var n = Math.max(pa.length, pb.length);
+    for (var i = 0; i < n; i++) {
+      var x = parseInt(pa[i] || "0", 10);
+      var y = parseInt(pb[i] || "0", 10);
+      if (x > y) { return true; }
+      if (x < y) { return false; }
+    }
+    return false;
+  }
   function checkForUpdate() {
     fetch(API_URL, { cache: "no-store" })
       .then(function (r) { if (!r.ok) { throw new Error("Open VSX " + r.status); } return r.json(); })
@@ -253,16 +265,23 @@ test(<code>'add handles empty input'</code>, () =&gt; {
         }
         if (d && typeof d.version === "string" && d.version) {
           if (pill) { pill.textContent = "Version " + d.version; }
-          if (d.version !== EMBEDDED_VERSION) {
-            if (bannerText) { bannerText.textContent = "A new version of AITestNova is out (v" + d.version + ") — this page is refreshing to it."; }
-            if (banner) { banner.hidden = false; }
+          if (isNewer(d.version, EMBEDDED_VERSION)) {
+            if (pill) { pill.textContent = "Version " + d.version; }
             try {
               var key = "autoRefreshFor:" + d.version;
               if (!sessionStorage.getItem(key)) {
                 sessionStorage.setItem(key, "1");
+                if (bannerText) { bannerText.textContent = "A new version of AITestNova is out (v" + d.version + ") — this page is refreshing to it."; }
+                if (banner) { banner.hidden = false; }
                 setTimeout(hardRefresh, 1500);
+              } else {
+                if (bannerText) { bannerText.textContent = "Version " + d.version + " is out on Open VSX — this page's write-up for it is on its way."; }
+                if (banner) { banner.hidden = false; }
               }
-            } catch (e) { /* storage unavailable: banner stays, no auto reload */ }
+            } catch (e) {
+              if (bannerText) { bannerText.textContent = "A new version of AITestNova is out (v" + d.version + ")."; }
+              if (banner) { banner.hidden = false; }
+            }
           } else if (banner) { banner.hidden = true; }
         }
       })
