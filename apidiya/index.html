@@ -122,7 +122,7 @@
 </head>
 <body>
 <header class="nav"><div class="wrap nav-inner">
-  <a class="wordmark" href="#"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><rect width="128" height="128" rx="24" fill="#0f172a"/><text x="64" y="82" font-family="monospace" font-size="52" font-weight="bold" fill="#2dd4bf" text-anchor="middle">{ }</text></svg>ApiDiya <small class="live-version">v0.2.1</small></a>
+  <a class="wordmark" href="#"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><rect width="128" height="128" rx="24" fill="#0f172a"/><text x="64" y="82" font-family="monospace" font-size="52" font-weight="bold" fill="#2dd4bf" text-anchor="middle">{ }</text></svg>ApiDiya <small class="live-version">v0.2.3</small></a>
   <nav class="links"><a href="#features">Features</a><a href="#install">Install</a><a href="#privacy">Privacy</a><a href="#reviews">Reviews</a></nav>
   <a class="btn small nav-cta" href="#get">Get the extension</a>
 </div></header>
@@ -130,7 +130,7 @@
 <div class="wrap">
   <div class="hero"><div class="hero-3d" aria-hidden="true"><span class="c1"></span><span class="c2"></span><span class="c3"></span></div><div class="hero-grid"><div>
     <div class="hero-logo"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><rect width="128" height="128" rx="24" fill="#0f172a"/><text x="64" y="82" font-family="monospace" font-size="52" font-weight="bold" fill="#2dd4bf" text-anchor="middle">{ }</text></svg></div>
-    <span class="version-pill"><span class="dot"></span><b class="live-version">Version 0.2.1</b> · VS Code &amp; Antigravity · MIT License</span>
+    <span class="version-pill"><span class="dot"></span><b class="live-version">Version 0.2.3</b> · VS Code &amp; Antigravity · MIT License</span>
     <h1>A light that shows whether an <em>API works</em></h1>
     <p class="lede">A <strong>Postman-style testing workspace</strong> for VS Code and Antigravity — send requests, save collections, run test suites, and mock APIs locally, with no cloud and no account.</p>
     <div class="cta-row">
@@ -154,7 +154,7 @@ GET <code>{{baseUrl}}/users</code>
     </div>
     <p class="panel-caption">A preview of the sidebar. <b>Nothing is sent except the request you press Send on.</b></p>
     <div class="dl-box" aria-label="Live download count">
-      <div class="dl-main"><div class="dl-icon">⬇</div><div><div><span class="dl-number" id="downloads">180</span> <span class="dl-label">downloads on Antigravity</span></div><p class="dl-sub">People using ApiDiya in Antigravity, right now and counting</p></div></div>
+      <div class="dl-main"><div class="dl-icon">⬇</div><div><div><span class="dl-number" id="downloads">268</span> <span class="dl-label">downloads on Antigravity</span></div><p class="dl-sub">People using ApiDiya in Antigravity, right now and counting</p></div></div>
       <span class="dl-live">● LIVE</span>
     </div>
   </div></div></div>
@@ -188,7 +188,7 @@ GET <code>{{baseUrl}}/users</code>
     <li><span class="n">2</span><div><h3>Open the sidebar</h3><p>Click the ApiDiya icon in the activity bar, or run ApiDiya: Open from the Command Palette.</p></div></li>
     <li><span class="n">3</span><div><h3>Send your first request</h3><p>Pick a seeded request or type your own URL, press Send, then save it to a collection or add assertions and run it as a test.</p></div></li>
   </ol>
-  <p style="color:var(--muted);font-size:15.5px">No account, no API key, and no model needed. The store's current published version is 0.2.1 — the 0.2.2 sidebar download count is in the VSIX builds, and appears on the store once 0.2.2 is published there.</p></section>
+  <p style="color:var(--muted);font-size:15.5px">No account, no API key, and no model needed. The store's current published version is 0.2.3, which includes the sidebar download count, code snippets, WebSocket + SSE testing, and an MCP server.</p></section>
 
   <section class="block" id="privacy"><div class="section-head">
     <span class="num">03 — PRIVACY</span>
@@ -208,7 +208,7 @@ GET <code>{{baseUrl}}/users</code>
 
   <section id="get"><div class="cta-panel">
     <h2>Get ApiDiya in your sidebar</h2>
-    <p>Version 0.2.1 on Open VSX · 0.2.2 VSIX adds the sidebar download count · VS Code &amp; Antigravity · MIT License · By NitinKumar Hiremath</p>
+    <p>Version 0.2.3 on Open VSX · 0.2.3 adds code snippets, WebSocket + SSE testing, and an MCP server · VS Code &amp; Antigravity · MIT License · By NitinKumar Hiremath</p>
     <div class="cta-row">
       <a class="btn" href="https://open-vsx.org/extension/apidiya/api-testing-studio">Install on Open VSX</a>
       <a class="btn ghost" href="https://github.com/1nc24cs146-cmyk/API-Testing-Studio">View on GitHub</a>
@@ -237,7 +237,7 @@ GET <code>{{baseUrl}}/users</code>
   // listing. No banner, no reload. The pill only ever moves forward: if
   // the listing is behind this page (a build not published yet), the page
   // keeps its own version. Keep EMBEDDED_VERSION in sync with the pill.
-  var EMBEDDED_VERSION = "0.2.1";
+  var EMBEDDED_VERSION = "0.2.3";
   var API_URL = "https://open-vsx.org/api/apidiya/api-testing-studio";
   var pills = document.querySelectorAll(".live-version");
   var downloads = document.getElementById("downloads");
