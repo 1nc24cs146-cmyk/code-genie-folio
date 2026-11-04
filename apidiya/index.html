@@ -61,9 +61,6 @@
   .version-pill{display:inline-flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:13.5px;font-weight:500;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:5px 12px;background:var(--surface)}
   .version-pill b{color:var(--ink)}
   .version-pill .dot{width:8px;height:8px;border-radius:50%;background:#059669;flex:none}
-  .update-banner{position:fixed;top:0;left:0;right:0;z-index:999;background:#0f172a;color:#fff;text-align:center;padding:10px 16px;font-size:14px}
-  .update-banner[hidden]{display:none}
-  .update-banner button{margin-left:10px;background:#fff;color:#0f172a;border:0;border-radius:99px;padding:4px 14px;font-weight:700;cursor:pointer}
   h1{font-size:clamp(38px,4.6vw,54px);line-height:1.06;letter-spacing:-.03em;margin:20px 0 16px;font-weight:700}
   h1 em{font-style:normal;color:var(--teal-deep)}
   @media (prefers-color-scheme: dark){ h1 em{color:var(--teal)} }
@@ -124,7 +121,6 @@
 </style>
 </head>
 <body>
-<div id="update-banner" class="update-banner" hidden><span id="update-banner-text"></span><button type="button" id="update-banner-btn">Refresh now</button></div>
 <header class="nav"><div class="wrap nav-inner">
   <a class="wordmark" href="#"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><rect width="128" height="128" rx="24" fill="#0f172a"/><text x="64" y="82" font-family="monospace" font-size="52" font-weight="bold" fill="#2dd4bf" text-anchor="middle">{ }</text></svg>ApiDiya <small>v0.2.1</small></a>
   <nav class="links"><a href="#features">Features</a><a href="#install">Install</a><a href="#privacy">Privacy</a><a href="#reviews">Reviews</a></nav>
@@ -236,22 +232,15 @@ GET <code>{{baseUrl}}/users</code>
 </div>
 <script>
 (function () {
-  // Self-updating page: on every load (and every 5 minutes after), the live
-  // Open VSX listing is checked. The version pill and download count update
-  // in place, and if a newer extension version is out than the one baked
-  // into this page, the page refreshes itself past the browser cache — no
-  // manual hard refresh needed. Keep EMBEDDED_VERSION in sync with the pill.
+  // Silent live update: on every load and every 5 minutes after, the
+  // version pill and download count refresh from the live Open VSX
+  // listing. No banner, no reload. The pill only ever moves forward: if
+  // the listing is behind this page (a build not published yet), the page
+  // keeps its own version. Keep EMBEDDED_VERSION in sync with the pill.
   var EMBEDDED_VERSION = "0.2.1";
   var API_URL = "https://open-vsx.org/api/apidiya/api-testing-studio";
-  var banner = document.getElementById("update-banner");
-  var bannerText = document.getElementById("update-banner-text");
-  var bannerBtn = document.getElementById("update-banner-btn");
   var pill = document.querySelector(".live-version");
   var downloads = document.getElementById("downloads");
-  function hardRefresh() {
-    location.replace(location.pathname + "?v=" + Date.now() + location.hash);
-  }
-  if (bannerBtn) { bannerBtn.addEventListener("click", hardRefresh); }
   function isNewer(a, b) {
     var pa = String(a).split(".");
     var pb = String(b).split(".");
@@ -271,26 +260,8 @@ GET <code>{{baseUrl}}/users</code>
         if (d && typeof d.downloadCount === "number" && downloads) {
           downloads.textContent = d.downloadCount.toLocaleString();
         }
-        if (d && typeof d.version === "string" && d.version) {
+        if (d && typeof d.version === "string" && d.version && isNewer(d.version, EMBEDDED_VERSION)) {
           if (pill) { pill.textContent = "Version " + d.version; }
-          if (isNewer(d.version, EMBEDDED_VERSION)) {
-            if (pill) { pill.textContent = "Version " + d.version; }
-            try {
-              var key = "autoRefreshFor:" + d.version;
-              if (!sessionStorage.getItem(key)) {
-                sessionStorage.setItem(key, "1");
-                if (bannerText) { bannerText.textContent = "A new version of ApiDiya is out (v" + d.version + ") — this page is refreshing to it."; }
-                if (banner) { banner.hidden = false; }
-                setTimeout(hardRefresh, 1500);
-              } else {
-                if (bannerText) { bannerText.textContent = "Version " + d.version + " is out on Open VSX — this page's write-up for it is on its way."; }
-                if (banner) { banner.hidden = false; }
-              }
-            } catch (e) {
-              if (bannerText) { bannerText.textContent = "A new version of ApiDiya is out (v" + d.version + ")."; }
-              if (banner) { banner.hidden = false; }
-            }
-          } else if (banner) { banner.hidden = true; }
         }
       })
       .catch(function () { /* keep the baked-in fallback text visible */ });
