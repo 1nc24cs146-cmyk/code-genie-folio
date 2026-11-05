@@ -172,13 +172,16 @@ test(<code>'add handles empty input'</code>, () =&gt; {
   <section class="block" id="features"><div class="section-head">
     <span class="num">01 — FEATURES</span>
     <h2>What it does</h2>
-    <p>One panel for tests, APIs, suites, coverage, and stability — with review before anything is saved.</p>
+    <p>One panel for tests, APIs, suites, coverage, stability, and test health — with review before anything is saved.</p>
   </div><div class="cards">
     <div class="card"><h3>Unit tests, in one click</h3><p>Click “Generate test” above a function in JavaScript/TypeScript, Python, Java, or Go. Tests open for review first.</p></div>
     <div class="card"><h3>Tests from a comment</h3><p>Select a comment or spec, and AITestNova turns your spec lines into test cases.</p></div>
     <div class="card"><h3>Multi-model generation</h3><p>Try up to 3 Ollama or OpenAI-compatible models and keep the best-scoring output. Or use template mode, no key needed.</p></div>
     <div class="card"><h3>Record &amp; replay APIs</h3><p>Send &amp; Record saves a real request and response. Replay diffs status and body, mock mode replays without the live server, and normalisation ignores volatile fields like timestamps and ids.</p></div>
     <div class="card"><h3>Suites, stability &amp; coverage</h3><p>Run API suites in order, replay tests 5 times to catch flakes, and check coverage against a baseline you set. A local dashboard shows replays, coverage, and stability history.</p></div>
+    <div class="card"><h3>Test health: stale, mutation, flaky</h3><p>A Health tab checks whether a generated test still matches its function, seeds small bugs to score whether your tests actually catch them, and quarantines flaky tests into their own suite — with a trend view over the last 20 runs.</p></div>
+    <div class="card"><h3>Save it where it belongs</h3><p>Save a generated test straight to its proper test file, and update a recorded API test's expected status and body when the API changes on purpose. Go coverage reads coverage.out, and a failed AI run now says why instead of falling back silently.</p></div>
+    <div class="card"><h3>Works on real code, not just demos</h3><p>Multi-line signatures, class methods, typed Java and Go parameters, and Python defaults — parsed correctly. Mutation never touches operators inside strings or comments, and a test named like HTML can't become markup in the panel.</p></div>
     <div class="card"><h3>CI &amp; pull requests, locally</h3><p>Generate a GitHub Actions workflow for your stack, commit a saved test file locally, and create a PR description file. Push is never automatic.</p></div>
     <div class="card"><h3>Download count, visible in the extension</h3><p>Antigravity's own extension-details panel has no downloads row, so AITestNova shows its live Open VSX download count at the top of its own sidebar panel, and in its README.</p></div>
   </div></section>
