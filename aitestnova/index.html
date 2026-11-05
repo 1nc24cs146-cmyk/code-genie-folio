@@ -163,7 +163,7 @@ test(<code>'add handles empty input'</code>, () =&gt; {
   </div></div></div>
 
   <div class="facts">
-    <div class="fact"><b>716 downloads</b><span>on Open VSX, live count above</span></div>
+    <div class="fact"><b class="live-downloads">716 downloads</b><span>on Open VSX, live count above</span></div>
     <div class="fact"><b>4 languages</b><span>JavaScript / TypeScript, Python, Java, Go</span></div>
     <div class="fact"><b>Template first</b><span>no model, no key needed</span></div>
     <div class="fact"><b>Local only</b><span>no cloud dashboard, no telemetry</span></div>
@@ -201,7 +201,7 @@ test(<code>'add handles empty input'</code>, () =&gt; {
 
   <section id="get"><div class="cta-panel">
     <h2>Get AITestNova in your sidebar</h2>
-    <p>Version 0.3.6 · Antigravity / VS Code engine ^1.85 · MIT License · By NitinKumar Hiremath</p>
+    <p>Version <span class="live-version-num">0.3.6</span> · Antigravity / VS Code engine ^1.85 · MIT License · By NitinKumar Hiremath</p>
     <div class="cta-row">
       <a class="btn" href="https://open-vsx.org/extension/aitestnova/aitestnova">Install on Open VSX</a>
       <a class="btn ghost" href="https://github.com/1nc24cs146-cmyk/AITestNova">View on GitHub</a>
@@ -225,14 +225,20 @@ test(<code>'add handles empty input'</code>, () =&gt; {
 <script>
 (function () {
   // Silent live update: on every load and every 5 minutes after, the
-  // version pill and download count refresh from the live Open VSX
-  // listing. No banner, no reload. The pill only ever moves forward: if
-  // the listing is behind this page (a build not published yet), the page
-  // keeps its own version. Keep EMBEDDED_VERSION in sync with the pill.
+  // version pill, the download count, and the facts-row download figure
+  // refresh from the live Open VSX listing. No banner, no reload. The
+  // pill only ever moves forward: if the listing is behind this page (a
+  // build not published yet), the page keeps its own version. Keep
+  // EMBEDDED_VERSION in sync with the pill. Every download figure on
+  // this page carries the live treatment, so no number can go stale
+  // and make the page look fake.
   var EMBEDDED_VERSION = "0.3.6";
   var API_URL = "https://open-vsx.org/api/aitestnova/aitestnova";
   var pills = document.querySelectorAll(".live-version");
   var downloads = document.getElementById("downloads");
+  var factDownloads = document.querySelectorAll(".fact-downloads");
+  var versionNums = document.querySelectorAll(".live-version-num");
+  var factDownloads = document.querySelectorAll(".live-downloads");
   function isNewer(a, b) {
     var pa = String(a).split(".");
     var pb = String(b).split(".");
@@ -251,6 +257,9 @@ test(<code>'add handles empty input'</code>, () =&gt; {
       .then(function (d) {
         if (d && typeof d.downloadCount === "number" && downloads) {
           downloads.textContent = d.downloadCount.toLocaleString();
+          for (var j = 0; j < factDownloads.length; j++) {
+            factDownloads[j].textContent = d.downloadCount.toLocaleString() + " downloads";
+          }
         }
         if (d && typeof d.version === "string" && d.version && isNewer(d.version, EMBEDDED_VERSION)) {
           for (var i = 0; i < pills.length; i++) {
