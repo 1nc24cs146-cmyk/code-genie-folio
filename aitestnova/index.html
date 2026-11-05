@@ -236,7 +236,6 @@ test(<code>'add handles empty input'</code>, () =&gt; {
   var API_URL = "https://open-vsx.org/api/aitestnova/aitestnova";
   var pills = document.querySelectorAll(".live-version");
   var downloads = document.getElementById("downloads");
-  var factDownloads = document.querySelectorAll(".fact-downloads");
   var versionNums = document.querySelectorAll(".live-version-num");
   var factDownloads = document.querySelectorAll(".live-downloads");
   function isNewer(a, b) {
@@ -264,6 +263,9 @@ test(<code>'add handles empty input'</code>, () =&gt; {
         if (d && typeof d.version === "string" && d.version && isNewer(d.version, EMBEDDED_VERSION)) {
           for (var i = 0; i < pills.length; i++) {
             pills[i].textContent = (pills[i].textContent.indexOf("Version ") === 0 ? "Version " : "v") + d.version;
+          }
+          for (var k = 0; k < versionNums.length; k++) {
+            versionNums[k].textContent = d.version;
           }
         }
       })
