@@ -127,7 +127,7 @@
 </head>
 <body>
 <header class="nav"><div class="wrap nav-inner">
-  <a class="wordmark" href="#top" aria-label="AITestNova home"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><rect width="128" height="128" rx="24" fill="#10243a"/><text x="64" y="78" font-family="sans-serif" font-size="36" font-weight="bold" fill="#1fc2c9" text-anchor="middle">AI</text><path d="M30 92 L52 70 L64 82 L92 50" stroke="#f5a623" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="92" cy="50" r="6" fill="#f5a623"/></svg>AITestNova <small class="live-version">v0.3.6</small></a>
+  <a class="wordmark" href="#top" aria-label="AITestNova home"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><rect width="128" height="128" rx="24" fill="#10243a"/><text x="64" y="78" font-family="sans-serif" font-size="36" font-weight="bold" fill="#1fc2c9" text-anchor="middle">AI</text><path d="M30 92 L52 70 L64 82 L92 50" stroke="#f5a623" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="92" cy="50" r="6" fill="#f5a623"/></svg>AITestNova <small class="live-version">v0.3.9</small></a>
   <nav class="links" aria-label="Page"><a href="#features">Features</a><a href="#install">Install</a><a href="#limits">Honest limits</a><a href="#reviews">Reviews</a></nav>
   <a class="btn small nav-cta" href="#get">Get the extension</a>
 </div></header>
@@ -135,7 +135,7 @@
 <div class="wrap" id="top">
   <div class="hero"><div class="hero-3d" aria-hidden="true"><span class="c1"></span><span class="c2"></span><span class="c3"></span></div><div class="hero-grid"><div>
     <div class="hero-logo"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><rect width="128" height="128" rx="24" fill="#10243a"/><text x="64" y="78" font-family="sans-serif" font-size="36" font-weight="bold" fill="#1fc2c9" text-anchor="middle">AI</text><path d="M30 92 L52 70 L64 82 L92 50" stroke="#f5a623" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="92" cy="50" r="6" fill="#f5a623"/></svg></div>
-    <span class="version-pill"><span class="dot"></span><b class="live-version">Version 0.3.6</b> · Antigravity · MIT License</span>
+    <span class="version-pill"><span class="dot"></span><b class="live-version">Version 0.3.9</b> · Antigravity · MIT License</span>
     <h1>Test Studio for <em>Antigravity</em></h1>
     <p class="lede">Generate <strong>unit tests</strong>, record and replay API calls with mocks, run test suites, check coverage, and see a local dashboard — in Antigravity. Multi-model test generation, stability checks, and CI workflow included.</p>
     <div class="cta-row">
@@ -156,15 +156,15 @@ test(<code>'add handles empty input'</code>, () =&gt; {
     </div>
     <p class="panel-caption">A preview of the panel. <b>Nothing is saved until you save it.</b> Template tests are starting points, not proof.</p>
     <div class="dl-box"><div class="dl-main"><div class="dl-icon">↓</div><div>
-      <div class="dl-number" id="downloads">716</div>
+      <div class="dl-number" id="downloads">1,064</div>
       <div class="dl-label">downloads on Open VSX</div>
       <p class="dl-sub">Live count, updates automatically · 0 reviews so far</p>
     </div></div><span class="dl-live">● LIVE</span></div>
   </div></div></div>
 
   <div class="facts">
-    <div class="fact"><b class="live-downloads">716 downloads</b><span>on Open VSX, live count above</span></div>
-    <div class="fact"><b>12 languages</b><span>JavaScript, TypeScript, Python, Java, Go, C, C++, C#, Rust, Ruby, PHP, Kotlin, Swift</span></div>
+    <div class="fact"><b class="live-downloads">1,064 downloads</b><span>on Open VSX, live count above</span></div>
+    <div class="fact"><b>13 languages</b><span>JavaScript, TypeScript, Python, Java, Go, C, C++, C#, Rust, Ruby, PHP, Kotlin, Swift</span></div>
     <div class="fact"><b>Template first</b><span>no model, no key needed</span></div>
     <div class="fact"><b>Local only</b><span>no cloud dashboard, no telemetry</span></div>
   </div>
@@ -186,8 +186,30 @@ test(<code>'add handles empty input'</code>, () =&gt; {
     <div class="card"><h3>Download count, visible in the extension</h3><p>Antigravity's own extension-details panel has no downloads row, so AITestNova shows its live Open VSX download count at the top of its own sidebar panel, and in its README.</p></div>
   </div></section>
 
+  <section class="block" id="whats-new-039"><div class="section-head">
+    <span class="num">NEW — v0.3.9</span>
+    <h2>Built for real code</h2>
+    <p>Toy functions are pure; real code is not. AITestNova now detects what a file actually touches and writes tests for that — mocked, not live.</p>
+  </div><div class="cards">
+    <div class="card"><h3>Mocks the outside world</h3><p>Network calls (fetch, axios, requests, net/http), databases (Prisma, Mongoose, SQL, repositories), the file system, the clock, and environment config are detected — and mocked in the test, so nothing hits the network, disk, or a database.</p></div>
+    <div class="card"><h3>No test hits the network</h3><p>A function that calls the network, a database, or writes a file gets no plain test at all — its plain test used to call the real thing. It gets the mocked suite instead; pure functions in the same file keep their plain tests.</p></div>
+    <div class="card"><h3>Error paths &amp; pagination</h3><p>A function that throws, raises, or panics gets a test that triggers the error and asserts it surfaces. Functions with page/limit/offset parameters get a test that asks for a real page.</p></div>
+    <div class="card"><h3>In every language</h3><p>The real-world suite works in all 13 languages, each in its own test style — Jest/Vitest mocks, Python unittest.mock.patch, Mockito, Go httptest, and the rest.</p></div>
+  </div></section>
+
+  <section class="block" id="whats-new-038"><div class="section-head">
+    <span class="num">v0.3.8</span>
+    <h2>Trained for every language's libraries</h2>
+    <p>All 13 languages on the list, trained one by one — the generator recognises the framework a file uses and writes the test that framework expects.</p>
+  </div><div class="cards">
+    <div class="card"><h3>JavaScript &amp; TypeScript</h3><p>Jest, Vitest, Mocha, Node's runner, Jasmine; React, Express, Vue. TypeScript gets Angular TestBed, NestJS end-to-end tests, RxJS Observables, Zod schemas, and Next.js handlers.</p></div>
+    <div class="card"><h3>Python, Java &amp; Go</h3><p>Flask, FastAPI, Django, Pydantic, and async tests. Spring Boot MockMvc plus Mockito services. Go tests are table-driven now, with Gin routes and testify.</p></div>
+    <div class="card"><h3>C, C++, C# &amp; Rust</h3><p>Unity for C, Catch2 and doctest for C++, NUnit and MSTest for C# plus ASP.NET Core tests, tokio async tests and serde round-trips for Rust.</p></div>
+    <div class="card"><h3>Ruby, PHP, Kotlin &amp; Swift</h3><p>RSpec and Rails request specs, Pest and Laravel feature tests, Spring Boot Kotlin and Ktor, async Swift tests and Vapor routes.</p></div>
+  </div></section>
+
   <section class="block" id="whats-new"><div class="section-head">
-    <span class="num">NEW — v0.3.7</span>
+    <span class="num">v0.3.7</span>
     <h2>Now in 12 languages</h2>
     <p>Eight more languages joined JavaScript/TypeScript, Python, Java, and Go — each with real function parsing and a real test template, not a copy of the JavaScript one.</p>
   </div><div class="cards">
@@ -215,7 +237,7 @@ test(<code>'add handles empty input'</code>, () =&gt; {
 
   <section id="get"><div class="cta-panel">
     <h2>Get AITestNova in your sidebar</h2>
-    <p>Version <span class="live-version-num">0.3.6</span> · Antigravity / VS Code engine ^1.85 · MIT License · By NitinKumar Hiremath</p>
+    <p>Version <span class="live-version-num">0.3.9</span> · Antigravity / VS Code engine ^1.85 · MIT License · By NitinKumar Hiremath</p>
     <div class="cta-row">
       <a class="btn" href="https://open-vsx.org/extension/aitestnova/aitestnova">Install on Open VSX</a>
       <a class="btn ghost" href="https://github.com/1nc24cs146-cmyk/AITestNova">View on GitHub</a>
@@ -246,7 +268,7 @@ test(<code>'add handles empty input'</code>, () =&gt; {
   // EMBEDDED_VERSION in sync with the pill. Every download figure on
   // this page carries the live treatment, so no number can go stale
   // and make the page look fake.
-  var EMBEDDED_VERSION = "0.3.6";
+  var EMBEDDED_VERSION = "0.3.9";
   var API_URL = "https://open-vsx.org/api/aitestnova/aitestnova";
   var pills = document.querySelectorAll(".live-version");
   var downloads = document.getElementById("downloads");
