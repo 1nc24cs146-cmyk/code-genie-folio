@@ -127,7 +127,7 @@
 </head>
 <body>
 <header class="nav"><div class="wrap nav-inner">
-  <a class="wordmark" href="#top" aria-label="AITestNova home"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><rect width="128" height="128" rx="24" fill="#10243a"/><text x="64" y="78" font-family="sans-serif" font-size="36" font-weight="bold" fill="#1fc2c9" text-anchor="middle">AI</text><path d="M30 92 L52 70 L64 82 L92 50" stroke="#f5a623" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="92" cy="50" r="6" fill="#f5a623"/></svg>AITestNova <small class="live-version">v0.4.0</small></a>
+  <a class="wordmark" href="#top" aria-label="AITestNova home"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><rect width="128" height="128" rx="24" fill="#10243a"/><text x="64" y="78" font-family="sans-serif" font-size="36" font-weight="bold" fill="#1fc2c9" text-anchor="middle">AI</text><path d="M30 92 L52 70 L64 82 L92 50" stroke="#f5a623" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="92" cy="50" r="6" fill="#f5a623"/></svg>AITestNova <small class="live-version">v0.4.1</small></a>
   <nav class="links" aria-label="Page"><a href="#features">Features</a><a href="#install">Install</a><a href="#limits">Honest limits</a><a href="#reviews">Reviews</a></nav>
   <a class="btn small nav-cta" href="#get">Get the extension</a>
 </div></header>
@@ -135,7 +135,7 @@
 <div class="wrap" id="top">
   <div class="hero"><div class="hero-3d" aria-hidden="true"><span class="c1"></span><span class="c2"></span><span class="c3"></span></div><div class="hero-grid"><div>
     <div class="hero-logo"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><rect width="128" height="128" rx="24" fill="#10243a"/><text x="64" y="78" font-family="sans-serif" font-size="36" font-weight="bold" fill="#1fc2c9" text-anchor="middle">AI</text><path d="M30 92 L52 70 L64 82 L92 50" stroke="#f5a623" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="92" cy="50" r="6" fill="#f5a623"/></svg></div>
-    <span class="version-pill"><span class="dot"></span><b class="live-version">Version 0.4.0</b> · Antigravity · MIT License</span>
+    <span class="version-pill"><span class="dot"></span><b class="live-version">Version 0.4.1</b> · Antigravity · MIT License</span>
     <h1>Test Studio for <em>Antigravity</em></h1>
     <p class="lede">Generate <strong>unit tests</strong>, record and replay API calls with mocks, run test suites, check coverage, and see a local dashboard — in Antigravity. Multi-model test generation, stability checks, and CI workflow included.</p>
     <div class="cta-row">
@@ -156,14 +156,14 @@ test(<code>'add handles empty input'</code>, () =&gt; {
     </div>
     <p class="panel-caption">A preview of the panel. <b>Nothing is saved until you save it.</b> Template tests are starting points, not proof.</p>
     <div class="dl-box"><div class="dl-main"><div class="dl-icon">↓</div><div>
-      <div class="dl-number" id="downloads">1,468</div>
+      <div class="dl-number" id="downloads">1,656</div>
       <div class="dl-label">downloads on Open VSX</div>
       <p class="dl-sub">Live count, updates automatically · 0 reviews so far</p>
     </div></div><span class="dl-live">● LIVE</span></div>
   </div></div></div>
 
   <div class="facts">
-    <div class="fact"><b class="live-downloads">1,468 downloads</b><span>on Open VSX, live count above</span></div>
+    <div class="fact"><b class="live-downloads">1,656 downloads</b><span>on Open VSX, live count above</span></div>
     <div class="fact"><b>13 languages</b><span>JavaScript, TypeScript, Python, Java, Go, C, C++, C#, Rust, Ruby, PHP, Kotlin, Swift</span></div>
     <div class="fact"><b>Template first</b><span>no model, no key needed</span></div>
     <div class="fact"><b>Local only</b><span>no cloud dashboard, no telemetry</span></div>
@@ -186,8 +186,18 @@ test(<code>'add handles empty input'</code>, () =&gt; {
     <div class="card"><h3>Download count, visible in the extension</h3><p>Antigravity's own extension-details panel has no downloads row, so AITestNova shows its live Open VSX download count at the top of its own sidebar panel, and in its README.</p></div>
   </div></section>
 
+  <section class="block" id="whats-new-041"><div class="section-head">
+    <span class="num">NEW — v0.4.1</span>
+    <h2>Tests that close the gaps</h2>
+    <p>Coverage tells you which lines have no test; mutation tells you which seeded bugs your tests missed. Now AITestNova generates the tests that close both gaps — from the data it already collects.</p>
+  </div><div class="cards">
+    <div class="card"><h3>Tests for uncovered lines</h3><p>Pick a file in the Health tab and generate tests aimed at its uncovered lines — the same per-file coverage and uncovered-line ranges added in the previous release for JavaScript and TypeScript, plus Go. No more guessing which lines still need a test.</p></div>
+    <div class="card"><h3>Tests that kill surviving mutants</h3><p>A mutant that survives means a seeded bug your tests did not catch. Generate a test aimed at that mutant, run mutation again, and watch it die — proof the new test actually guards the code.</p></div>
+    <div class="card"><h3>Nothing new to collect</h3><p>Both generators reuse the coverage and mutation results AITestNova already gathers — no new scan, no new setup. Generated tests open for review first, like every other generated test.</p></div>
+  </div></section>
+
   <section class="block" id="whats-new-040"><div class="section-head">
-    <span class="num">NEW — v0.4.0</span>
+    <span class="num">PREVIOUS RELEASE</span>
     <h2>Coverage for JavaScript &amp; TypeScript</h2>
     <p>Go had per-file coverage since 0.3.6. Now JavaScript and TypeScript do too — read straight from your Istanbul coverage, in the Health tab.</p>
   </div><div class="cards">
@@ -248,7 +258,7 @@ test(<code>'add handles empty input'</code>, () =&gt; {
 
   <section id="get"><div class="cta-panel">
     <h2>Get AITestNova in your sidebar</h2>
-    <p>Version <span class="live-version-num">0.4.0</span> · Antigravity / VS Code engine ^1.85 · MIT License · By NitinKumar Hiremath</p>
+    <p>Version <span class="live-version-num">0.4.1</span> · Antigravity / VS Code engine ^1.85 · MIT License · By NitinKumar Hiremath</p>
     <div class="cta-row">
       <a class="btn" href="https://open-vsx.org/extension/aitestnova/aitestnova">Install on Open VSX</a>
       <a class="btn ghost" href="https://github.com/1nc24cs146-cmyk/AITestNova">View on GitHub</a>
@@ -279,7 +289,7 @@ test(<code>'add handles empty input'</code>, () =&gt; {
   // EMBEDDED_VERSION in sync with the pill. Every download figure on
   // this page carries the live treatment, so no number can go stale
   // and make the page look fake.
-  var EMBEDDED_VERSION = "0.4.0";
+  var EMBEDDED_VERSION = "0.4.1";
   var API_URL = "https://open-vsx.org/api/aitestnova/aitestnova";
   var pills = document.querySelectorAll(".live-version");
   var downloads = document.getElementById("downloads");
