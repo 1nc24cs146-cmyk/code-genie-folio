@@ -122,7 +122,7 @@
 </head>
 <body>
 <header class="nav"><div class="wrap nav-inner">
-  <a class="wordmark" href="#"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><rect width="128" height="128" rx="24" fill="#0f172a"/><text x="64" y="82" font-family="monospace" font-size="52" font-weight="bold" fill="#2dd4bf" text-anchor="middle">{ }</text></svg>ApiDiya <small class="live-version">v0.3.1</small></a>
+  <a class="wordmark" href="#"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><rect width="128" height="128" rx="24" fill="#0f172a"/><text x="64" y="82" font-family="monospace" font-size="52" font-weight="bold" fill="#2dd4bf" text-anchor="middle">{ }</text></svg>ApiDiya <small class="live-version">v0.3.2</small></a>
   <nav class="links"><a href="#features">Features</a><a href="#install">Install</a><a href="#privacy">Privacy</a><a href="#reviews">Reviews</a></nav>
   <a class="btn small nav-cta" href="#get">Get the extension</a>
 </div></header>
@@ -130,7 +130,7 @@
 <div class="wrap">
   <div class="hero"><div class="hero-3d" aria-hidden="true"><span class="c1"></span><span class="c2"></span><span class="c3"></span></div><div class="hero-grid"><div>
     <div class="hero-logo"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><rect width="128" height="128" rx="24" fill="#0f172a"/><text x="64" y="82" font-family="monospace" font-size="52" font-weight="bold" fill="#2dd4bf" text-anchor="middle">{ }</text></svg></div>
-    <span class="version-pill"><span class="dot"></span><b class="live-version">Version 0.3.1</b> · VS Code &amp; Antigravity · MIT License</span>
+    <span class="version-pill"><span class="dot"></span><b class="live-version">Version 0.3.2</b> · VS Code &amp; Antigravity · MIT License</span>
     <h1>A light that shows whether an <em>API works</em></h1>
     <p class="lede">A <strong>Postman-style testing workspace</strong> for VS Code and Antigravity — send requests, save collections, run test suites, and mock APIs locally, with no cloud and no account.</p>
     <div class="cta-row">
@@ -154,13 +154,13 @@ GET <code>{{baseUrl}}/users</code>
     </div>
     <p class="panel-caption">A preview of the sidebar. <b>Nothing is sent except the request you press Send on.</b></p>
     <div class="dl-box" aria-label="Live download count">
-      <div class="dl-main"><div class="dl-icon">⬇</div><div><div><span class="dl-number" id="downloads">1,130</span> <span class="dl-label">downloads on Antigravity</span></div><p class="dl-sub">People using ApiDiya in Antigravity, right now and counting</p></div></div>
+      <div class="dl-main"><div class="dl-icon">⬇</div><div><div><span class="dl-number" id="downloads">1,398</span> <span class="dl-label">downloads on Antigravity</span></div><p class="dl-sub">People using ApiDiya in Antigravity, right now and counting</p></div></div>
       <span class="dl-live">● LIVE</span>
     </div>
   </div></div></div>
 
   <div class="facts">
-    <div class="fact"><b class="live-downloads">1,130 downloads</b><span>on Open VSX, live count above</span></div>
+    <div class="fact"><b class="live-downloads">1,398 downloads</b><span>on Open VSX, live count above</span></div>
     <div class="fact"><b>31 seeded requests</b><span>across 7 collections</span></div>
     <div class="fact"><b>5 methods</b><span>GET, POST, PUT, PATCH, DELETE</span></div>
     <div class="fact"><b>Local only</b><span>no cloud, no telemetry</span></div>
@@ -180,12 +180,13 @@ GET <code>{{baseUrl}}/users</code>
     <div class="card"><h3>Download count, visible in the extension</h3><p>Antigravity's own extension-details panel has no downloads row, so ApiDiya shows its live Open VSX download count at the top of its own sidebar panel, from version 0.2.2.</p></div>
     <div class="card"><h3>Code snippets</h3><p>Copy any request as cURL, fetch, or Python in one click. The snippet includes the auth token if one is set — and the sidebar says so before you copy.</p></div>
     <div class="card"><h3>WebSocket + SSE testing</h3><p>Open a WebSocket in the sidebar and watch live messages arrive, or stream server-sent events through the extension host — with the same save, assert, and re-run flow as a normal request.</p></div>
-    <div class="card"><h3>MCP server</h3><p>A local MCP server on 127.0.0.1:3102 (Streamable HTTP) exposes twelve tools — create and save requests, list collections and requests, send requests, get the last response, import OpenAPI, generate tests, run test suites, explain failures, and generate docs — so an AI assistant can drive ApiDiya. Tool results never include secrets.</p></div>
+    <div class="card"><h3>MCP server</h3><p>A local MCP server on 127.0.0.1:3102 (Streamable HTTP) exposes thirteen tools — create and save requests, list collections and requests, send requests, get the last response, import OpenAPI, generate tests, run test suites, explain failures, generate docs, and check for breaking changes — so an AI assistant can drive ApiDiya. Tool results never include secrets.</p></div>
     <div class="card"><h3>AI test generation</h3><p>Generate test assertions with AI from a real response, explain a failed request, or create a request from plain words — using Ollama on your own machine, so nothing leaves your device. Needs Ollama running with a model pulled.</p></div>
     <div class="card"><h3>Data-driven collection runs</h3><p>Paste CSV rows or JSON rows into the sidebar, pick a saved suite, and it runs once per row — with {{variables}} substituted in the URL, headers, query and body. Per-row pass/fail plus totals, and the rows live only for the run, never stored.</p></div>
     <div class="card"><h3>JSON Schema response validation</h3><p>Add a JSON Schema under Assertions and every test run checks the response against it, naming mismatches plainly — like $.id: expected integer, got string. Types, required fields, properties, items, enums, ranges, lengths and patterns are covered.</p></div>
     <div class="card"><h3>Import from cURL</h3><p>Paste a cURL command — multi-line works — and ApiDiya creates the request in the collection you choose. Method, headers, body and auth are parsed; a -u user:password becomes Basic auth with the password in the OS keychain, never in the request.</p></div>
     <div class="card"><h3>New in v0.3.1 — AI mock responses</h3><p>Import an OpenAPI spec, add a mock, and hit “Generate with AI” — the local Ollama model fills in a realistic response that matches the schema, so your mock behaves like the real API. All on your device, nothing leaves it.</p></div>
+    <div class="card"><h3>New in v0.3.2 — Breaking-change detection</h3><p>Save a response as your baseline and every run after that is checked against it — a removed required field or a changed type is flagged as breaking, a new optional field as just an addition. Also available to AI agents as a thirteenth MCP tool.</p></div>
   </div></section>
 
   <section class="block" id="install"><div class="section-head">
@@ -196,7 +197,7 @@ GET <code>{{baseUrl}}/users</code>
     <li><span class="n">2</span><div><h3>Open the sidebar</h3><p>Click the ApiDiya icon in the activity bar, or run ApiDiya: Open from the Command Palette.</p></div></li>
     <li><span class="n">3</span><div><h3>Send your first request</h3><p>Pick a seeded request or type your own URL, press Send, then save it to a collection or add assertions and run it as a test.</p></div></li>
   </ol>
-  <p style="color:var(--muted);font-size:15.5px">No account or API key needed. The store's current published version is 0.3.1, which adds AI mock responses from an OpenAPI spec — import a spec, add a mock, and “Generate with AI” fills in a realistic response matching the schema, all on-device via local Ollama — on top of data-driven collection runs, JSON Schema response validation, cURL import, the sidebar download count, code snippets, WebSocket + SSE testing, an MCP server with twelve tools, and AI test generation via local Ollama.</p></section>
+  <p style="color:var(--muted);font-size:15.5px">No account or API key needed. The store's current published version is 0.3.2, which adds breaking-change detection — save a response as your baseline and every run is checked for removed fields and changed types — on top of AI mock responses from an OpenAPI spec, data-driven collection runs, JSON Schema response validation, cURL import, the sidebar download count, code snippets, WebSocket + SSE testing, an MCP server with thirteen tools, and AI test generation via local Ollama.</p></section>
 
   <section class="block" id="privacy"><div class="section-head">
     <span class="num">03 — PRIVACY</span>
@@ -216,7 +217,7 @@ GET <code>{{baseUrl}}/users</code>
 
   <section id="get"><div class="cta-panel">
     <h2>Get ApiDiya in your sidebar</h2>
-    <p>Version <span class="live-version-num">0.3.1</span> on Open VSX · <span class="live-version-num">0.3.1</span> adds AI mock responses from an OpenAPI spec · VS Code &amp; Antigravity · MIT License · By NitinKumar Hiremath</p>
+    <p>Version <span class="live-version-num">0.3.2</span> on Open VSX · <span class="live-version-num">0.3.2</span> adds breaking-change detection · VS Code &amp; Antigravity · MIT License · By NitinKumar Hiremath</p>
     <div class="cta-row">
       <a class="btn" href="https://open-vsx.org/extension/apidiya/api-testing-studio">Install on Open VSX</a>
       <a class="btn ghost" href="https://github.com/1nc24cs146-cmyk/API-Testing-Studio">View on GitHub</a>
@@ -248,7 +249,7 @@ GET <code>{{baseUrl}}/users</code>
   // EMBEDDED_VERSION in sync with the pill. Every download figure on
   // this page carries the live treatment, so no number can go stale
   // and make the page look fake.
-  var EMBEDDED_VERSION = "0.3.1";
+  var EMBEDDED_VERSION = "0.3.2";
   var API_URL = "https://open-vsx.org/api/apidiya/api-testing-studio";
   var pills = document.querySelectorAll(".live-version");
   var downloads = document.getElementById("downloads");
