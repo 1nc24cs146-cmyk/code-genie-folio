@@ -127,7 +127,7 @@
 </head>
 <body>
 <header class="nav"><div class="wrap nav-inner">
-  <a class="wordmark" href="#top" aria-label="AITestNova home"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><rect width="128" height="128" rx="24" fill="#10243a"/><text x="64" y="78" font-family="sans-serif" font-size="36" font-weight="bold" fill="#1fc2c9" text-anchor="middle">AI</text><path d="M30 92 L52 70 L64 82 L92 50" stroke="#f5a623" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="92" cy="50" r="6" fill="#f5a623"/></svg>AITestNova <small class="live-version">v0.4.2</small></a>
+  <a class="wordmark" href="#top" aria-label="AITestNova home"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><rect width="128" height="128" rx="24" fill="#10243a"/><text x="64" y="78" font-family="sans-serif" font-size="36" font-weight="bold" fill="#1fc2c9" text-anchor="middle">AI</text><path d="M30 92 L52 70 L64 82 L92 50" stroke="#f5a623" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="92" cy="50" r="6" fill="#f5a623"/></svg>AITestNova <small class="live-version">v0.4.3</small></a>
   <nav class="links" aria-label="Page"><a href="#features">Features</a><a href="#install">Install</a><a href="#limits">Honest limits</a><a href="#reviews">Reviews</a></nav>
   <a class="btn small nav-cta" href="#get">Get the extension</a>
 </div></header>
@@ -135,7 +135,7 @@
 <div class="wrap" id="top">
   <div class="hero"><div class="hero-3d" aria-hidden="true"><span class="c1"></span><span class="c2"></span><span class="c3"></span></div><div class="hero-grid"><div>
     <div class="hero-logo"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><rect width="128" height="128" rx="24" fill="#10243a"/><text x="64" y="78" font-family="sans-serif" font-size="36" font-weight="bold" fill="#1fc2c9" text-anchor="middle">AI</text><path d="M30 92 L52 70 L64 82 L92 50" stroke="#f5a623" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="92" cy="50" r="6" fill="#f5a623"/></svg></div>
-    <span class="version-pill"><span class="dot"></span><b class="live-version">Version 0.4.2</b> · Antigravity · MIT License</span>
+    <span class="version-pill"><span class="dot"></span><b class="live-version">Version 0.4.3</b> · Antigravity · MIT License</span>
     <h1>Test Studio for <em>Antigravity</em></h1>
     <p class="lede">Generate <strong>unit tests</strong>, record and replay API calls with mocks, run test suites, check coverage, and see a local dashboard — in Antigravity. Multi-model test generation, stability checks, and CI workflow included.</p>
     <div class="cta-row">
@@ -186,8 +186,19 @@ test(<code>'add handles empty input'</code>, () =&gt; {
     <div class="card"><h3>Download count, visible in the extension</h3><p>Antigravity's own extension-details panel has no downloads row, so AITestNova shows its live Open VSX download count at the top of its own sidebar panel, and in its README.</p></div>
   </div></section>
 
+  <section class="block" id="whats-new-043"><div class="section-head">
+    <span class="num">NEW — v0.4.3</span>
+    <h2>Flaky tests, finally explained</h2>
+    <p>A flaky test used to fail without saying why. Now every replay keeps the last five failures per test, and a Health-tab button explains the cause in plain words — with the evidence behind it and what to do.</p>
+  </div><div class="cards">
+    <div class="card"><h3>One sentence, plain words</h3><p>Pick a test in the Health tab and ask why it is flaky — or run “AITestNova: Explain Why a Test Is Flaky” from the Command Palette. You get a one-sentence cause, the evidence it rests on, and what to do about it.</p></div>
+    <div class="card"><h3>The evidence it reads</h3><p>Every replay now keeps the last five failures per test: the error text, how long it took, the expected versus actual status, the first difference in the body, and where the test sat in the batch.</p></div>
+    <div class="card"><h3>Seven causes it names</h3><p>Connection trouble, a timeout, a server error, a volatile value in the body, response data that changes between runs, a cold start that fails only the first time, or a test that fails only after other tests — order-dependent.</p></div>
+    <div class="card"><h3>Honest when it can't tell</h3><p>One failure on its own, or failures from before 0.4.3 with no detail saved, honestly say there is not enough to tell yet — no invented cause.</p></div>
+  </div></section>
+
   <section class="block" id="whats-new-042"><div class="section-head">
-    <span class="num">NEW — v0.4.2</span>
+    <span class="num">v0.4.2</span>
     <h2>A new language, a new framework, and end-to-end</h2>
     <p>Svelte joins as the 14th language, Fastify routes get their own tests, and two new commands write Playwright and Cypress smoke specs from your routes. Two bugs the new tests caught are fixed in this release too.</p>
   </div><div class="cards">
@@ -269,7 +280,7 @@ test(<code>'add handles empty input'</code>, () =&gt; {
 
   <section id="get"><div class="cta-panel">
     <h2>Get AITestNova in your sidebar</h2>
-    <p>Version <span class="live-version-num">0.4.2</span> · Antigravity / VS Code engine ^1.85 · MIT License · By NitinKumar Hiremath</p>
+    <p>Version <span class="live-version-num">0.4.3</span> · Antigravity / VS Code engine ^1.85 · MIT License · By NitinKumar Hiremath</p>
     <div class="cta-row">
       <a class="btn" href="https://open-vsx.org/extension/aitestnova/aitestnova">Install on Open VSX</a>
       <a class="btn ghost" href="https://github.com/1nc24cs146-cmyk/AITestNova">View on GitHub</a>
@@ -300,7 +311,7 @@ test(<code>'add handles empty input'</code>, () =&gt; {
   // EMBEDDED_VERSION in sync with the pill. Every download figure on
   // this page carries the live treatment, so no number can go stale
   // and make the page look fake.
-  var EMBEDDED_VERSION = "0.4.2";
+  var EMBEDDED_VERSION = "0.4.3";
   var API_URL = "https://open-vsx.org/api/aitestnova/aitestnova";
   var pills = document.querySelectorAll(".live-version");
   var downloads = document.getElementById("downloads");
